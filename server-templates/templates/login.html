@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Authentication Example</title>
+    <link rel="stylesheet" href="public/css/font-awesome/css/font-awesome.css">
+    
+    <!--compiled bootstrap theme css -->
+    <link rel="stylesheet" href="public/css/main.css">
+
+  <script type="text/javascript" src="public/js/lib/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+    <section class="panel">
+      <h1>Login</h1>
+      <div>{{message}}</div>
+      <form method="post" action="/login">
+        <p>
+          <label>Username:</label>
+          <input name="username" type="text">
+        </p>
+        <p>
+          <label>Password:</label>
+          <input name="password" type="text">
+        </p>
+        <p>
+          <input value="Login" type="submit">
+        </p>
+      </form>
+      <a href="/logout">Log-Out</a>
+
+    </section>
+  </body>
+</html>
