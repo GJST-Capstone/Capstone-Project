@@ -6,8 +6,6 @@ app.templates.main = _.template(
 
 app.templates.listItem = _.template(
   '<p class="lead">{{title}}:</p>' +
-  '<p>{{description}}</p>'
+  '<p>{{description}}</p>' +
+  '<a class="fake-link" href="#">fake link</a>'
   );
-
-
-
