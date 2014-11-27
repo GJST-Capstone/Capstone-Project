@@ -5,7 +5,10 @@ app.templates.main = _.template(
     );
 
 app.templates.listItem = _.template(
-  '<p class="lead">{{title}}:</p>' +
-  '<p>{{description}}</p>' +
-  '<a class="fake-link" href="#">fake link</a>'
+  '<p class="lead">{{title}}</p>' +
+  '<p class="lead">{{description}}</p>' +
+  '<img src="{{thumbnailsS}}" alt="{{title}}"><br>' +
+  '<img src="{{thumbnailsM}}" alt="{{title}}"><br>' +
+  '<img src="{{thumbnailsL}}" alt="{{title}}"><br>' +
+  '<iframe width="560" height="315" src="//www.youtube.com/embed/{{videoId}}?rel=0" frameborder="0" allowfullscreen></iframe>'
   );
