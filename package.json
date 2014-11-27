@@ -21,6 +21,6 @@
     "routes-router": "^4.1.1",
     "send-data": "^3.3.3",
     "st": "^0.5.1",
-    "underscore": "^1.7.0",
+    "underscore": "^1.7.0"
   }
 }
