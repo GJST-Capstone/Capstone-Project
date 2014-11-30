@@ -1,4 +1,4 @@
-// practicing AJAX request to YouTube
+// AJAX request to YouTube
 
 // put this into backbone
 
