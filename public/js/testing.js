@@ -1,20 +1,31 @@
 // AJAX request to YouTube
 
-// put this into backbone
-
 // next step is to figure out how this URL is built (its parts) and create it in a live request.
 // 1. try manually replacing channel ID
 // 2. add in search keywords
 // 3. specify how many results we want
 
-// also try to manually (through DOM) render it to the page
-var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCD0nBMLdq_KbIK9u-mzpNkA&key=AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA'
+// put this into backbone
+
+var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCD0nBMLdq_KbIK9u-mzpNkA&key=AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA';
+
+var allmydata = [];
 
 $.get(url,null,function(data){
-	console.log("Video Title: " + data.items[0].snippet.title);
-	console.log("Video Description: " + data.items[0].snippet.description);
-	console.log("Video Image Thumbnail: " + data.items[0].snippet.thumbnails.medium.url);
+// maybe the second argument is the search terms from our front end search params customer chooses
+	var videoOneData = {};
+	videoOneData.videoTitle = data.items[0].snippet.title;
+	videoOneData.videoDesc = data.items[0].snippet.description;
+	videoOneData.videoImgThumb = data.items[0].snippet.thumbnails.medium.url;
+	console.log(videoOneData);
+	allmydata.push(videoOneData);
+	console.log(allmydata);
 })
+
+
+// -----
+
+// Do a loop through an array of approved YouTube channel IDs to generate the URL. Then in that loop, as the URL is built, put it in as the argurement to the .get request.
 
 // put output of the .get into a variable and 
 
