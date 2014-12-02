@@ -9,7 +9,7 @@
 
 var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCD0nBMLdq_KbIK9u-mzpNkA&key=AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA';
 
-var allmydata = [];
+var fullVideoData = [];
 
 $.get(url,null,function(data){
 // maybe the second argument is the search terms from our front end search params customer chooses
@@ -17,9 +17,9 @@ $.get(url,null,function(data){
 	videoOneData.videoTitle = data.items[0].snippet.title;
 	videoOneData.videoDesc = data.items[0].snippet.description;
 	videoOneData.videoImgThumb = data.items[0].snippet.thumbnails.medium.url;
-	console.log(videoOneData);
-	allmydata.push(videoOneData);
-	console.log(allmydata);
+	// console.log(videoOneData);
+	fullVideoData.push(videoOneData);
+	console.log(fullVideoData);
 })
 
 
