@@ -11,6 +11,7 @@ var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=U
 
 var fullVideoData = [];
 
+
 $.get(url,null,function(data){
 // maybe the second argument is the search terms from our front end search params customer chooses
 	var videoOneData = {};
