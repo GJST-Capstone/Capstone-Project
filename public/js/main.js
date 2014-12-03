@@ -1,6 +1,3 @@
-
-
-
 app.Router = Backbone.Router.extend({
     routes: {
         "results/": "results",

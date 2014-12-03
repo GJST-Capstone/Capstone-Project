@@ -13,9 +13,15 @@ module.exports = function(grunt) {
     },
   },
   watch: {
-    less: {
+    options: {
+      dateFormat: function(time) {
+        grunt.log.writeln('The watch finished in ' + time + 'ms at' + (new Date()).toString());
+        grunt.log.writeln('Waiting for more changes...');
+      },
+    },
+    css: {
       // We watch and compile less files as normal but don't live reload here
-      files: ['theme/*.less'],
+      files: ['**/*.less'],
       tasks: ['less'],
     },
   },
