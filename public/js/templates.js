@@ -1,7 +1,11 @@
 app.templates = {};
 
+app.templates.indexview = _.template(
+    '<div>hello</div>'
+    );
+
 app.templates.main = _.template(
-    '<div id="fakeDataList"></div>'
+    '<div id="videos-list"></div>'
     );
 
 app.templates.listItem = _.template(
