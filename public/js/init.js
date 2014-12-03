@@ -121,9 +121,9 @@ var results = {
 
 
 
-results.items.forEach(function (item){
-  item.id2 = item.id
-  delete item.id
+results.items.forEach(function (video){
+  video.id2 = video.id
+  delete video.id
 });
 
 
