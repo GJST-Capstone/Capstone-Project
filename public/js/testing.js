@@ -7,10 +7,11 @@
 
 // put this into backbone
 
-var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCD0nBMLdq_KbIK9u-mzpNkA&key=AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA';
+var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId='+ channelID[i] + '&key=AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA';
 
 var fullVideoData = [];
 
+var channelID = ['']
 
 $.get(url,null,function(data){
 // maybe the second argument is the search terms from our front end search params customer chooses
