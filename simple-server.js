@@ -103,6 +103,13 @@ router.addRoute("/", {
 });
 
 
+router.addRoute("/joel", {
+  GET: function (req, res, opts) {
+    sendHtml(req, res, templates.joel({ message: "hello joel"}));
+  },
+});
+
+
 // router.addRoute("/login", {
 //   GET: function (req, res, opts) {
 //     sendHtml(req, res, templates.login({ message: "Please log in"}));

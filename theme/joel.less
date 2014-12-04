@@ -1,1 +1,48 @@
-//this is a less file
+
+.btn-joel,
+.btn-greg{
+	font-weight: 500;
+	background: @primary;
+	height: @height100;
+	.rounded(@radius: 0px);
+	.transition(@duration:1s, @ease:ease);
+}
+
+
+.btn-joel{
+	.drop-shadow(@x-axis: 0, @y-axis: 1px, @blur: 2px, @alpha: 0.1);
+}
+.btn-joel:hover,
+.btn-greg:hover{
+	background: lighten(@primary, 10%);
+	color: #fff;
+		.transition(@duration:1s, @ease:ease);
+}
+.btn-joel:hover{
+	color:@purple;
+}
+
+
+
+
+
+
+.red{
+margin-bottom: 10px;
+background: brown;
+}
+
+.red.notredbutgray{
+	background: #eee;
+}
+
+.red .joels-media {
+color:green;
+background: blue;
+}
+
+
+.media{
+
+	p{}
+}

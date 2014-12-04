@@ -13,6 +13,15 @@
   <script type="text/javascript" src="public/js/lib/backbone.js"></script>
   <script type="text/javascript" src="public/js/lib/bootstrap.min.js"></script>
   <script type="text/javascript" src="public/js/testing.js"></script>
+  
+  <script type="text/javascript" src="public/js/init-app.js"></script>
+  <script type="text/javascript" src="public/js/templates.js"></script>
+  <script type="text/javascript" src="public/js/resultsView.js"></script>
+  <script type="text/javascript" src="public/js/indexView.js"></script>
+  <script type="text/javascript" src="public/js/main.js"></script>
+
+
+
 </head>
 <body>
 <!-- Fixed navbar -->
@@ -25,11 +34,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><i class="fa fa-heart-o"></i> {{message}}</a>
+          <a class="navbar-brand" href="/">
+            <i class="fa fa-heart-o"></i> 
+            {{message}}
+          </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
+            <li><a href="/#/results/">search-View</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -39,13 +52,7 @@
       <div id="my-app"></div>
     </div>
 
-  <script type="text/javascript" src="public/js/lib/jquery.js"></script>
-  <script type="text/javascript" src="public/js/lib/underscore.js"></script>
-  <script type="text/javascript" src="public/js/lib/backbone.js"></script>
-  <script type="text/javascript" src="public/js/lib/bootstrap.min.js"></script>
-  <script type="text/javascript" src="public/js/init-app.js"></script>
-  <script type="text/javascript" src="public/js/templates.js"></script>
-  <script type="text/javascript" src="public/js/main.js"></script>
+
 
 </body>
 </html>
