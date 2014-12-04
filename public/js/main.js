@@ -4,7 +4,9 @@ app.Router = Backbone.Router.extend({
         "*actions": "/" // Backbone will try match the route above first
     }
 });
-// Instantiate the router and .get the data
+// INIT the router and .get the data
+
+//data obj
 var results = {};
 
 app.router = new app.Router;
@@ -12,6 +14,8 @@ app.router.on('route:results', function () {
     //create the collection
     app.resultsView = new app.ResultsView({collection: app.videosCol});
     //save the url
+    
+
     var firstURL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCD0nBMLdq_KbIK9u-mzpNkA&key=AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA';
     //.get callback for youtube data
     function vidDataCallback(data) {
@@ -26,8 +30,10 @@ app.router.on('route:results', function () {
       //render
       app.resultsView.render();         
     }
+    
     //get the data
     $.get(firstURL, null, vidDataCallback);
+
 
 });
 

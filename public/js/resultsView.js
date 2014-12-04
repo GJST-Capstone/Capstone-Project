@@ -27,7 +27,6 @@ app.VideosListView = Backbone.View.extend({
             data.thumbnailsM = snippet.thumbnails.medium.url;
             data.thumbnailsL = snippet.thumbnails.high.url;
       
-            //console.log(video);
           
             outputHtml += app.templates.listItem(data);
 
