@@ -6,7 +6,8 @@ app.Videos = Backbone.Collection.extend({
   
 });
 
-app.videosCol = new app.Videos(results.items);
+app.videosCol = new app.Videos();
+
 
 app.VideosListView = Backbone.View.extend({
   el: '#videos-list',
@@ -32,8 +33,8 @@ app.VideosListView = Backbone.View.extend({
 
 
     });
-    console.log('this is the data for resultsView')
-    console.log(data);
+    // console.log('this is the data for resultsView')
+    // console.log(data);
     //console.log(outputHtml);
 
     $(this.el).html(outputHtml);
