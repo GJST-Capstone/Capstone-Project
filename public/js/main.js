@@ -4,12 +4,31 @@ app.Router = Backbone.Router.extend({
         "*actions": "/" // Backbone will try match the route above first
     }
 });
-// Instantiate the router
-app.router = new app.Router;
+// Instantiate the router and .get the data
+var results = {};
 
+app.router = new app.Router;
 app.router.on('route:results', function () {
+    //create the collection
     app.resultsView = new app.ResultsView({collection: app.videosCol});
-    app.resultsView.render();   
+    //save the url
+    var firstURL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCD0nBMLdq_KbIK9u-mzpNkA&key=AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA';
+    //.get callback for youtube data
+    function vidDataCallback(data) {
+      
+      results = data;
+      results.items.forEach(function (video){
+        video.id2 = video.id
+        delete video.id
+      }); 
+      //add the data to the collection
+      app.videosCol.add(results.items);
+      //render
+      app.resultsView.render();         
+    }
+    //get the data
+    $.get(firstURL, null, vidDataCallback);
+
 });
 
 app.router.on('route:/', function () {
@@ -18,9 +37,4 @@ app.router.on('route:/', function () {
 });
 // Start Backbone history a necessary step for bookmarkable URL's
 Backbone.history.start();
-
-// $(function () {
-//   app.resultsView = new app.ResultsView({collection: app.videosCol});
-//   app.resultsView.render();
-// });
 
