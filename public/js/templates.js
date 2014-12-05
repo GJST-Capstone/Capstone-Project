@@ -1,11 +1,40 @@
 app.templates = {};
 
 app.templates.indexview = _.template(
-    '<div>hello</div>'
+    '<a class="btn btn-primary" href="/#/search/">search</a>'+
+    '<a class="btn btn-primary" href="/#/choose/">choose</a>'
+    );
+app.templates.searchView = _.template(
+  '<form role="form">'+
+    '<div class="form-group">'+
+      '<div>search page</div>'+
+      '<a class="btn btn-primary" href="/">back</a>'+
+      '<div class="row">'+
+        '<div class="col-xs-6">'+
+          '<label for="exampleInputPassword1">Password</label>'+
+          '<select class="form-control">'+
+            '<option>1</option>'+
+            '<option>2</option>'+
+          '</select>'+
+          '<label for="exampleInputPassword1">Password</label>'+
+          '<select class="form-control">'+
+            '<option>1</option>'+
+          '</select>'+
+          '<label for="exampleInputPassword1">Password</label>'+
+          '<select class="form-control">'+
+            '<option>1</option>'+
+            '<option>2</option>'+
+            '<option>3</option>'+
+          '</select>'+
+        '</div>'+  
+      '</div>'+
+    '</div>'+
+    '<button type="submit" class="btn btn-default">Submit</button>'+
+  '</form>'
     );
 
 app.templates.main = _.template(
-    '<div id="videos-list"></div>'
+    '<div id="videos-list"></div>'    
     );
 
 app.templates.listItem = _.template(
