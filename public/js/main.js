@@ -1,5 +1,6 @@
 app.Router = Backbone.Router.extend({
     routes: {
+        "search/": "search",
         "results/": "results",
         "*actions": "/" // Backbone will try match the route above first
     }
@@ -36,11 +37,18 @@ app.router.on('route:results', function () {
 
 
 });
+app.router.on('route:search', function () {
+    app.searchView = new app.SearchView();
+    app.searchView.render();  
+});
 
 app.router.on('route:/', function () {
     app.indexView = new app.IndexView();
     app.indexView.render();  
 });
+
+
+
 // Start Backbone history a necessary step for bookmarkable URL's
 Backbone.history.start();
 
