@@ -8,35 +8,35 @@ app.Videos = Backbone.Collection.extend({
 
 app.videosCol = new app.Videos();
 
-
 app.VideosListView = Backbone.View.extend({
   el: '#videos-list',
-  initialize: function (opts) {},
+  initialize: function (opts) {
+    app.searchCol.on('add', this.render, this); 
+    //app.searchCol.listenTo(this.model, 'change', this.render);
+  },
+
   render: function () {
+
+
     var outputHtml = '';
     var data = {};
     this.collection.models.forEach(function (video) {
-
-            var vidId = video.get('id2'); 
-            var snippet = video.get('snippet')      
-            
-            data.videoId = vidId.videoId;
-            data.title = snippet.title;
-            data.description = snippet.description;
-            data.thumbnailsS = snippet.thumbnails.default.url;
-            data.thumbnailsM = snippet.thumbnails.medium.url;
-            data.thumbnailsL = snippet.thumbnails.high.url;          
-            outputHtml += app.templates.listItem(data);
-
-
+      var vidId = video.get('id2'); 
+      var snippet = video.get('snippet')      
+      //add youtube api-data to the obj we call in the template
+      data.videoId = vidId.videoId;
+      data.title = snippet.title;
+      data.description = snippet.description;
+      data.thumbnailsS = snippet.thumbnails.default.url;
+      data.thumbnailsM = snippet.thumbnails.medium.url;
+      data.thumbnailsL = snippet.thumbnails.high.url;
+      //output template and provide data obj          
+      outputHtml += app.templates.listItem(data);
     });
-    // console.log('this is the data for resultsView')
-    // console.log(data);
-    //console.log(outputHtml);
-
+    console.log('Vids Were rendered');
+    console.log('searchCol has add') 
     $(this.el).html(outputHtml);
   }
-
 
 });
 
