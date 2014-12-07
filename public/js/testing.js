@@ -35,6 +35,10 @@ var results = [];
     var firstURLwSearchTerms = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCIJwWYOfsCfz6PjxbONYXSg&q=abs&key={YOUR_API_KEY}'
     // GREG SAYS: search terms (from drop down options) will be stored into an array.
     // .... So to add them to the URL, I'll need to first pass that array to a string and then add to the URL call
+      // does [array].toString work?
+    var searchString = [serachstringArray.toString] // w/ items added inbetween if needed
+    var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=' + channelID + '&' + searchString + '&key=AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA'
+    // need to confirm how multiple search terms are strung together. If need characters between items to that see above
 
     //.get callback for youtube data
     function vidDataCallback(data) {
@@ -65,6 +69,7 @@ var channelID = ['UCD0nBMLdq_KbIK9u-mzpNkA',
 
 for (i=o; i<channelID.index; ++i) {
   var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId='+ channelID[i] + '&key=AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA';
+
 }
 
 // results should be an array of objects
