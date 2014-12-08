@@ -1,19 +1,9 @@
 // AJAX request to YouTube
 
-// next step is to figure out how this URL is built (its parts) and create it in a live request.
-// 1. try manually replacing channel ID
-// 2. add in search keywords
-// 3. specify how many results we want
-
-// put this into backbone
-
-// what does URL look like when search terms are entered? How can we dynamically build URL w/ search terms.
-
 // var fullVideoData = [];
 
 
 // $.get(url,null,function(data){
-// // maybe the second argument is the search terms from our front end search params customer chooses
 // 	var videoOneData = {};
 // 	videoOneData.videoTitle = data.items[0].snippet.title;
 // 	videoOneData.videoDesc = data.items[0].snippet.description;
@@ -23,22 +13,55 @@
 // 	console.log(fullVideoData);
 // })
 
-// Dec 3: build a for loop to run through the url to add a search term in correct place and if more than one search term, add in correct format. (if statement)
+// NEXT STEP: build a for loop to run through the url to add a search term in correct place and if more than one search term, add in correct format. (if statement)
 // then run that through all the channels (insert channel ID from array of approved IDs)
 // push data into results array (change results object to array)
 // look into video format (mobile read, etc...)
 
 var results = [];
+    
+    // // no search terms or max results
+    // var firstURL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCD0nBMLdq_KbIK9u-mzpNkA&key=AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA';
+    
+    // // with one search term
+    // var firstURLwSearchTerms = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCIJwWYOfsCfz6PjxbONYXSg&maxResults=2&q=abs&key=AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA'
+    
+    // // multiple search terms with commas in between ( '%2C' between each term ) and 2 max results ( '&maxResults=2' )
+    // var wMultipleSearchTermswComma = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCiP6wD_tYlYLYh3agzbByWQ&maxResults=2&q=abs%2C+indoor&key={YOUR_API_KEY}'
 
-// written by greg
-    var firstURL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCD0nBMLdq_KbIK9u-mzpNkA&key=AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA';
-    var firstURLwSearchTerms = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCIJwWYOfsCfz6PjxbONYXSg&q=abs&key={YOUR_API_KEY}'
-    // GREG SAYS: search terms (from drop down options) will be stored into an array.
-    // .... So to add them to the URL, I'll need to first pass that array to a string and then add to the URL call
-      // does [array].toString work?
-    var searchString = [serachstringArray.toString] // w/ items added inbetween if needed
-    var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=' + channelID + '&' + searchString + '&key=AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA'
-    // need to confirm how multiple search terms are strung together. If need characters between items to that see above
+    // // multiple search terms with no commas and 2 max results ( '&maxResults=2' )
+    // var wMultipleSearchTermsNoComma = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCiP6wD_tYlYLYh3agzbByWQ&maxResults=2&q=abs+indoor&key={YOUR_API_KEY}'
+
+    // search terms (from drop down options) will be stored into an array. To add to the URL, need to pull each item then + '%2C' to represent the comma
+    var searchString = 'q=';
+      for (i=0; i<searchStringArray.length; ++i) {
+        var searchTerm = searchStringArray[i];
+        console.log(searchTerm);
+        searchString += searchTerm;
+        console.log(searchString);
+      };
+
+// dynamically building URL format
+if (searchString == 0) {
+  var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=' + channelID + '&maxResults=' + maxResultsNum + '&' + searchString + '&key=AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA'
+}
+
+// loop to build URLs
+
+var channelID = ['UCD0nBMLdq_KbIK9u-mzpNkA',
+       'UCxTO69CggJGFQpZz-kE2k7g',
+       'UCdsvmOV_qYJUPqlUxs72Jtw',
+       'UCgBTevPW8fsH4pQNrLufOsQ',
+       'UCiP6wD_tYlYLYh3agzbByWQ',
+       'UCuY1W4AwhhgkB6rsJBtltUA',
+       'UCnUlSOVlCmoyQ6e2YQAGZZA',
+       'UCIJwWYOfsCfz6PjxbONYXSg'];
+
+for (i=o; i<channelID.index; ++i) {
+  var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId='+ channelID[i] + '&key=AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA';
+
+}
+
 
     //.get callback for youtube data
     function vidDataCallback(data) {
@@ -56,21 +79,6 @@ var results = [];
     //get the data
     $.get(firstURL, null, vidDataCallback);
 
-// loop to build URLs
-
-var channelID = ['UCD0nBMLdq_KbIK9u-mzpNkA',
-       'UCxTO69CggJGFQpZz-kE2k7g',
-       'UCdsvmOV_qYJUPqlUxs72Jtw',
-       'UCgBTevPW8fsH4pQNrLufOsQ',
-       'UCiP6wD_tYlYLYh3agzbByWQ',
-       'UCuY1W4AwhhgkB6rsJBtltUA',
-       'UCnUlSOVlCmoyQ6e2YQAGZZA',
-       'UCIJwWYOfsCfz6PjxbONYXSg'];
-
-for (i=o; i<channelID.index; ++i) {
-  var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId='+ channelID[i] + '&key=AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA';
-
-}
 
 // results should be an array of objects
 //		Objects should be the data.items[0] of each channel request.
