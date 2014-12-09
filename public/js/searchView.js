@@ -11,7 +11,9 @@ app.SearchCollection = Backbone.Collection.extend({
 app.searchCol = new app.SearchCollection();
 
 app.searchCol.add([
-  {searchInputVal: 'workout'},
+  {
+  	searchInputVal: 'workout',
+  },
 ]);
     
 app.SearchView = Backbone.View.extend({
@@ -40,6 +42,6 @@ app.SearchInputView = Backbone.View.extend({
     //add results to new col
     app.resultsView = new app.ResultsView({collection: app.videosCol});
     addSearch();
-    navigateResults();
+    app.router.navigate('#results/', { trigger: true})
   }
 });
