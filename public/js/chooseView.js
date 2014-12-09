@@ -32,17 +32,17 @@ app.ChooseInputView = Backbone.View.extend({
     if(chooseValOne === null){
       chooseValOne = 'easy+';
     }else{
-      chooseValOne = this.$(".choose-controlOne").val()+'+';
+      chooseValOne = chooseValOne+'+';
     }
     if(chooseValTwo === null){
       chooseValTwo = 'inside+';
     }else{
-      this.$(".choose-controlTwo").val()+'+';
+      chooseValTwo = chooseValTwo+'+';
     }
     if(chooseValThree === null){
       chooseValThree = '';
     }else{
-      chooseValThree = this.$(".choose-controlThree").val()+'+';
+      chooseValThree = chooseValThree+'+';
     }
     var chooseValConcat = chooseValOne + chooseValTwo + chooseValThree + 'workout';
     var chooseVal = chooseValConcat;
