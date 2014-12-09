@@ -19,6 +19,8 @@ app.searchCol.add([
 app.SearchView = Backbone.View.extend({
   el: '#my-app',
   render: function () {
+    this.$el.parent().removeClass( 'choose welcome results' ),
+    this.$el.parent().addClass( 'search' ),
     this.$el.html(app.templates.searchForm);
     app.searchInputView = new app.SearchInputView({collection: this.collection});
   }
