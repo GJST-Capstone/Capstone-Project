@@ -65,3 +65,34 @@ app.templates.searchForm = _.template(
   '<ol id="search-results">' +
   '</ol>'
 );
+
+
+app.templates.chooseForm = _.template(
+  '<h1><i class="fa fa-check-square-o"></i> Todos</h1>' +
+  '<form class="pure-form pure-form-stacked" id="choose-form">' +
+    '<fieldset>' +
+      '<select class="choose-controlOne">'+
+        '<option>easy</option>'+
+        '<option>medium</option>'+
+        '<option>difficult</option>'+
+      '</select>'+
+      '<select class="choose-controlTwo">'+
+        '<option>inside</option>'+
+        '<option>outsite</option>'+
+        '<option>gym</option>'+
+      '</select>'+
+      '<select class="choose-controlThree">'+
+        '<option>abs</option>'+
+        '<option>back</option>'+
+        '<option>butt</option>'+
+      '</select>'+
+      '<div class="pure-controls">' +
+        '<button id="choose-btn" class="pure-button">Search</button>' +
+      '</div>' +
+    '</fieldset>' +
+  '</form>' +
+  '<hr>' +
+  '<h3>You searched for <span class="chooseTerm"></span>Search Results</h3>' +
+  '<ol id="choose-results">' +
+  '</ol>'
+);
