@@ -17,6 +17,7 @@ app.Router = Backbone.Router.extend({
   },
   choose: function() {
     //create the collection
+
     app.chooseView = new app.ChooseView({collection: app.chooseCol});
     app.chooseView.render();         
   },
@@ -34,6 +35,7 @@ app.Router = Backbone.Router.extend({
       //render
       console.log(data.items)
       app.resultsView.render();
+      $(".ytvid").fitVids();
     }
     //get the data and run the callback
     $.get(app.url1, null, vidDataCallback);
@@ -58,7 +60,7 @@ app.router = new app.Router;
 function addSearch() {
   app.lastsearchModel = app.searchCol.length-1;
   app.searchChannelId = 'UCD0nBMLdq_KbIK9u-mzpNkA';
-  app.searchResultsVal = 10;
+  app.searchResultsVal = 12;
   app.searchInputAdd = app.searchCol.models[app.lastsearchModel].attributes.searchInputVal
   app.url1 = ytUrl+'&channelId='+app.searchChannelId+'&maxResults='+app.searchResultsVal+'&q='+app.searchInputAdd+'&key='+ytKey;
 }
@@ -73,12 +75,11 @@ function addChoose() {
     'UCuY1W4AwhhgkB6rsJBtltUA',
     'UCnUlSOVlCmoyQ6e2YQAGZZA', 
     'UCIJwWYOfsCfz6PjxbONYXSg',
-    //'UCIJwWYOfsCfz6PjxbONYXSg',
     'UCdsvmOV_qYJUPqlUxs72Jtw' 
 
   ];
-  app.chooseResultsVal = 1;
-  app.chooseInputAdd = app.chooseCol.models[app.lastchooseModel].attributes.chooseInputVal
+  app.chooseResultsVal = 2;
+  app.chooseInputAdd = app.chooseCol.models[app.lastchooseModel].attributes.chooseInputVal;
   app.url1 = ytUrl+'&channelId='+app.chooseChannelId[0]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
   app.url2 = ytUrl+'&channelId='+app.chooseChannelId[1]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
   app.url3 = ytUrl+'&channelId='+app.chooseChannelId[2]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
@@ -86,9 +87,21 @@ function addChoose() {
   app.url5 = ytUrl+'&channelId='+app.chooseChannelId[4]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
   app.url6 = ytUrl+'&channelId='+app.chooseChannelId[5]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
   app.url7 = ytUrl+'&channelId='+app.chooseChannelId[6]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
-  app.url8 = 'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCdsvmOV_qYJUPqlUxs72Jtw&maxResults=1&key='+ytKey;
-  //app.url8 = ytUrl+'&channelId='+app.chooseChannelId[7]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
+  app.url8 = ytUrl+'&channelId='+app.chooseChannelId[7]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
 }
+
+// Closes the Responsive Menu on Menu Item Click
+$('.navbar-collapse ul li a').click(function() {
+    $('.navbar-toggle:visible').click();
+});
+
+
+// function WeatherUnderground(){
+//   $.get('http://api.wunderground.com/api/76d70ebe6fc5953b/conditions/q/CA/San_Francisco.json', null);
+// }
+
+// app.WeatherGet = new WeatherUnderground(){};
+
 
 
 // Start Backbone history a necessary step for bookmarkable URL's

@@ -1,6 +1,3 @@
-
-
-
 app.chooseModel = Backbone.Model.extend({});
 
 app.ChooseCollection = Backbone.Collection.extend({
@@ -10,15 +7,12 @@ app.ChooseCollection = Backbone.Collection.extend({
 
 app.chooseCol = new app.ChooseCollection();
 
-app.chooseCol.add([
-  {
-  	chooseInputVal: 'workout',
-  },
-]);
     
 app.ChooseView = Backbone.View.extend({
   el: '#my-app',
   render: function () {
+    this.$el.parent().removeClass( 'welcome search results' ),
+    this.$el.parent().addClass( 'choose' ),
     this.$el.html(app.templates.chooseForm);
     app.chooseInputView = new app.ChooseInputView({collection: this.collection});
   }
@@ -31,10 +25,26 @@ app.ChooseInputView = Backbone.View.extend({
   },
   chooseForVal: function (event) {
     event.preventDefault();
-    var chooseValOne = this.$(".choose-controlOne").val()
-    var chooseValTwo = this.$(".choose-controlTwo").val()
-    var chooseValThree = this.$(".choose-controlThree").val()
-    var chooseValConcat = chooseValOne +'+'+ chooseValTwo +'+'+ chooseValThree;
+    var chooseValOne = this.$(".choose-controlOne").val();
+    var chooseValTwo = this.$(".choose-controlTwo").val();
+    var chooseValThree = this.$(".choose-controlThree").val();
+
+    if(chooseValOne === null){
+      chooseValOne = 'easy+';
+    }else{
+      chooseValOne = this.$(".choose-controlOne").val()+'+';
+    }
+    if(chooseValTwo === null){
+      chooseValTwo = 'inside+';
+    }else{
+      this.$(".choose-controlTwo").val()+'+';
+    }
+    if(chooseValThree === null){
+      chooseValThree = '';
+    }else{
+      chooseValThree = this.$(".choose-controlThree").val()+'+';
+    }
+    var chooseValConcat = chooseValOne + chooseValTwo + chooseValThree + 'workout';
     var chooseVal = chooseValConcat;
 
     console.log(chooseValConcat);
@@ -52,5 +62,7 @@ app.ChooseInputView = Backbone.View.extend({
     app.resultsView = new app.ResultsView({collection: app.videosCol});
     addChoose();
     app.router.navigate('#results/', { trigger: true})
+
   }
+
 });
