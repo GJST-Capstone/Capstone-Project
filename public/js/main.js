@@ -8,7 +8,7 @@ app.Router = Backbone.Router.extend({
 
   index: function() {
     app.indexView = new app.IndexView();
-    app.indexView.render();  
+    app.indexView.render();    
   },
   search: function() {
     //create the collection
@@ -17,7 +17,6 @@ app.Router = Backbone.Router.extend({
   },
   choose: function() {
     //create the collection
-
     app.chooseView = new app.ChooseView({collection: app.chooseCol});
     app.chooseView.render();         
   },
@@ -60,7 +59,7 @@ app.router = new app.Router;
 function addSearch() {
   app.lastsearchModel = app.searchCol.length-1;
   app.searchChannelId = 'UCD0nBMLdq_KbIK9u-mzpNkA';
-  app.searchResultsVal = 12;
+  app.searchResultsVal = 9;
   app.searchInputAdd = app.searchCol.models[app.lastsearchModel].attributes.searchInputVal
   app.url1 = ytUrl+'&channelId='+app.searchChannelId+'&maxResults='+app.searchResultsVal+'&q='+app.searchInputAdd+'&key='+ytKey;
 }
@@ -78,7 +77,7 @@ function addChoose() {
     'UCdsvmOV_qYJUPqlUxs72Jtw' 
 
   ];
-  app.chooseResultsVal = 2;
+  app.chooseResultsVal = 9;
   app.chooseInputAdd = app.chooseCol.models[app.lastchooseModel].attributes.chooseInputVal;
   app.url1 = ytUrl+'&channelId='+app.chooseChannelId[0]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
   app.url2 = ytUrl+'&channelId='+app.chooseChannelId[1]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
@@ -96,11 +95,20 @@ $('.navbar-collapse ul li a').click(function() {
 });
 
 
-// function WeatherUnderground(){
-//   $.get('http://api.wunderground.com/api/76d70ebe6fc5953b/conditions/q/CA/San_Francisco.json', null);
-// }
 
-// app.WeatherGet = new WeatherUnderground(){};
+function weatherUnder() {
+  $.ajax({
+    url : "http://api.wunderground.com/api/76d70ebe6fc5953b/geolookup/conditions/q/autoip.json",
+    dataType : "jsonp",
+    success : function(data) {  
+      app.weather = data;
+      $.trigger('weatherReady');
+    }
+  });
+};
+weatherUnder();
+
+
 
 
 

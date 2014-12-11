@@ -31,10 +31,10 @@ app.VideosListView = Backbone.View.extend({
       data.thumbnailsM = snippet.thumbnails.medium.url;
       data.thumbnailsL = snippet.thumbnails.high.url;
       //output template and provide data obj          
-      outputHtml += app.templates.listItem(data);
+      outputHtml += app.templates.resutlItem(data);
     });
     console.log('Vids Were rendered');
-    console.log('searchCol has add') 
+    console.log('searchCol has add from router:results') 
     $(this.el).html(outputHtml);
   }
 

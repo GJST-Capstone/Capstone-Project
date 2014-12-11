@@ -3,11 +3,7 @@ app.templates = {};
 app.templates.indexview = _.template(
   '<div class="full">'+
   '<div class="container">'+
-  //'<div class="row">'+
-  //'<div class="welcome-logo col-xs-12 col-sm-5 col-sm-offset-7">'+
-  // '<i class="fa fa-heart-o"></i>'+
-  //'</div>'+
-  //'</div>'+
+  // '<div id="weather"></div>'+
   '<div class="row start-here">'+
   '<div class="col-xs-12 col-sm-5 col-sm-offset-7">'+
   '<strong>Start your search here</strong>'+
@@ -62,7 +58,7 @@ app.templates.main = _.template(
 
 );
 
-app.templates.listItem = _.template(
+app.templates.resutlItem = _.template(
   '<div class="col-xs-12 col-sm-6 col-md-4">'+
   '<div class="ytvid">'+
   // '<p class="title">{{title}}</p>' +
@@ -71,6 +67,11 @@ app.templates.listItem = _.template(
   // '<img src="{{thumbnailsM}}" alt="{{title}}"><br>' +
   // '<img src="{{thumbnailsL}}" alt="{{title}}"><br>' +
   '<iframe width="560" height="315" src="//www.youtube.com/embed/{{videoId}}?rel=0" frameborder="0" allowfullscreen></iframe>'+
+  '<div class="likeThisWrap clearfix">'+
+  '<button class="btn btn-primary likeThis" type="button">'+
+  '<i class="fa fa-thumbs-up"></i> <span class="like-badge">0</span>'+
+  '</button>'+
+  '</div>'+
   '</div>'+
   '</div>'
 );
