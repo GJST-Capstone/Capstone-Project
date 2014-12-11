@@ -112,7 +112,7 @@ app.templates.chooseForm = _.template(
   '<div class="container">'+
   '<div class="row choose-here">'+
   '<div class="col-xs-12 col-sm-5 col-sm-offset-7">'+
-  '<strong>Choose</strong>' +
+  '<strong>Guided Search</strong>' +
   '<form id="choose-form">' +
     '<fieldset>' +
       '<select class="form-control choose-controlOne">'+
