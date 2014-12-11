@@ -13,6 +13,12 @@
 
 //@height100: 100px;
 
+[data-icon]:before {
+	font-family: 'MeteoconsRegular';
+	content: attr(data-icon);
+	font-style: normal;
+}
+
 a,a:link,a:active,a:visited{
 	//color:@primary;
 }
@@ -58,26 +64,35 @@ background-size: cover;
 -o-background-size: cover;
 position: relative;
 }
+
+.search-btns{
+	margin-top: 20px;
+}
+
 .start-here,
 .search-here,
 .choose-here{
-	margin-top: 150px;
+	margin-top: 20px;
 	strong{
 		text-transform: uppercase;;
-		color:#fff;
-		font-size: 25px;
+		color:#916CAF;
+		font-size: 20px;
+		background: rgba(255, 255, 255, 0.55);
+		padding: 10px 5px;
+		margin-bottom: 10px;
+		display: block;
 	}
 }
 #search-input{
 	border-radius: 0;
-	background: rgba(255, 255, 255, 0.4);
+	background: rgba(255, 255, 255, 0.55);
 	padding: 20px 10px;
 	font-size: 20px;
-	border-color: rgba(255, 255, 255, 0.71);
+	border-color: rgba(255, 255, 255, 0.70);
 	box-shadow: none;
 }
 .navbar-default{
-	background: rgba(255,255,255,0.5);
+	background: rgba(255,255,255,0.55);
 }
 .navbar-brand{
 	padding-top:14px;
@@ -92,7 +107,7 @@ position: relative;
 	text-transform: uppercase;
 	border-radius: 0;
 	border-color: lighten(#D76F92, 10%);
-	padding: 21px 10px;
+	padding: 12px 8px;
 	white-space: normal;
 	.transition(all 0.5s ease);
 	&:hover{
@@ -116,7 +131,7 @@ position: relative;
 	margin-right: 0;
 }
 .likeThisWrap{
-	background: rgba(255, 255, 255, 0.3);
+	background: rgba(255, 255, 255, 0.55);
 }
 .likeThis{
 	background: none;
@@ -133,6 +148,36 @@ position: relative;
 .ytvid{
 	margin:0 0 20px 0;
 
+}
+
+#currentWeather{
+	background:rgba(255, 255, 255, 0.55);
+	padding: 20px 0;
+	color:#916CAF;
+}
+
+.weather-icon{
+	font-size:40px;
+	display: block;
+	line-height:35px;
+}
+.weather-temp{
+	font-size: 30px;
+	display: block;
+	.deg,
+	.fahrenheit{
+		font-size:17px;
+		vertical-align: top;
+		line-height: 30px;
+	}
+}
+
+.weather-city{}
+.weather-state{}
+.weather-text{
+	font-size: 20px;
+	width: 50%;
+	margin: 10px auto;
 }
 
 footer small{

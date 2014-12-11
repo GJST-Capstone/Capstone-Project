@@ -3,9 +3,11 @@ app.templates = {};
 app.templates.indexview = _.template(
   '<div class="full">'+
   '<div class="container">'+
-  // '<div id="weather"></div>'+
   '<div class="row start-here">'+
   '<div class="col-xs-12 col-sm-5 col-sm-offset-7">'+
+  '<div id="currentWeather" class="clearfix"></div>'+
+  '</div>'+
+  '<div class="search-btns col-xs-12 col-sm-5 col-sm-offset-7">'+
   '<strong>Start your search here</strong>'+
   '<a class="btn btn-primary btn-lg pairedButtons" href="/#/search/">I want a specific workout</a>'+
   '<a class="btn btn-primary btn-lg pairedButtons" href="/#/choose/">Guide Me</a>'+
@@ -13,6 +15,15 @@ app.templates.indexview = _.template(
   '</div>'+
   '</div>'+
   '</div>'
+);
+app.templates.weatherview = _.template(
+  '<div class="col-sm-6">'+
+  '<span class="weather-icon">{{img}}</span>'+
+  '<span class="weather-temp">{{temp_f}}<span class="deg">&deg;</span><span class="fahrenheit">F</span></span>'+
+  '<span class="weather-city">{{city}}, </span>'+
+  '<span class="weather-state">{{state}}</span>'+
+  '</div>'+
+  '<div class=" col-sm-6 weather-text hidden-xs ">{{weather}}</div>'
 );
 // app.templates.searchView = _.template(
 //   '<div class="full">'+

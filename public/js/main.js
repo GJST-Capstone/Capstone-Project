@@ -32,7 +32,6 @@ app.Router = Backbone.Router.extend({
       //add the data to the collection
       app.videosCol.add(data.items);
       //render
-      console.log(data.items)
       app.resultsView.render();
       $(".ytvid").fitVids();
     }
@@ -101,8 +100,13 @@ function weatherUnder() {
     url : "http://api.wunderground.com/api/76d70ebe6fc5953b/geolookup/conditions/q/autoip.json",
     dataType : "jsonp",
     success : function(data) {  
-      app.weather = data;
-      $.trigger('weatherReady');
+    app.weather = data;
+    _.extend(data, Backbone.Events); 
+      data.on("weatherLoad", function() { 
+        app.weatherView = new app.WeatherView();
+        app.weatherView.render(data);  
+    });     
+    data.trigger("weatherLoad");   
     }
   });
 };
