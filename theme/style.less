@@ -77,7 +77,11 @@ position: relative;
 	box-shadow: none;
 }
 .navbar-default{
-	background: rgba(255,255,255,0.3);
+	background: rgba(255,255,255,0.5);
+}
+.navbar-brand{
+	padding-top:14px;
+	padding-bottom: 14px;
 }
 .pairedButtons{
 	width:100%;
@@ -98,11 +102,32 @@ position: relative;
 	}
 }
 
-
-.welcome-logo {
-	font-size: 150px;
-	text-align: center;
-	color: rgba(255,255,255,0.6);
+.logo,
+.logo-text{
+	margin: 0 5px 0 0;
+	float: left;
+	font-size: 24px;
+	font-weight: 300;
+	line-height: 25px;
+}
+.logo {
+	width: 20px;
+	height: auto;
+	margin-right: 0;
+}
+.likeThisWrap{
+	background: rgba(255, 255, 255, 0.3);
+}
+.likeThis{
+	background: none;
+	color: #c9355d;
+	border: none;
+	float: right;
+	border-radius: 0;
+	&:hover{
+		background: none;
+		color: darken(#c9355d, 15%);
+	}
 }
 
 .ytvid{

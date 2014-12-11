@@ -98,7 +98,7 @@ router.addRoute("/api", {
 
 router.addRoute("/", {
   GET: function (req, res, opts) {
-    sendHtml(req, res, templates.index({ message: "health app"}));
+    sendHtml(req, res, templates.index({ message: "RatherFit"}));
   },
 });
 
