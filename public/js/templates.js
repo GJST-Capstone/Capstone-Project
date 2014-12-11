@@ -93,10 +93,10 @@ app.templates.searchForm = _.template(
   '<div class="container">'+
   '<div class="row search-here">'+
   '<div class="col-xs-12 col-sm-5 col-sm-offset-7">'+
-  '<strong>Search</strong>' +
+  //'<strong>Search</strong>' +
   '<form id="search-form">' +
     '<fieldset>' +
-        '<input id="search-input" class="form-control" type="text">' +
+        '<input id="search-input" class="form-control" type="text" placeholder="Search">' +
         '<button id="search-btn" class="btn btn-primary btn-lg pairedButtons">Search</button>' +
     '</fieldset>' +
   '</form>' +
