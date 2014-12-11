@@ -8,7 +8,7 @@ app.templates.indexview = _.template(
   '<div id="currentWeather" class="clearfix"></div>'+
   '</div>'+
   '<div class="search-btns col-xs-12 col-sm-5 col-sm-offset-7">'+
-  '<strong>Start your search here</strong>'+
+  //'<strong>Start your search here</strong>'+
   '<a class="btn btn-primary btn-lg pairedButtons" href="/#/search/">I want a specific workout</a>'+
   '<a class="btn btn-primary btn-lg pairedButtons" href="/#/choose/">Guide Me</a>'+
   '</div>'+

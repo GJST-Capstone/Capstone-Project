@@ -29,11 +29,11 @@ app.WeatherView = Backbone.View.extend({
 		weatherdata.img = '<i data-icon="B"></i>';
 	}
 	if(weatherdata.weather === 'Partly Cloudy'){
-		weatherdata.weather = "it's kind of cloudy, welcome to PDX";
+		weatherdata.weather = "it's partly cloudy, treadmills are fun";
 		weatherdata.img = '<i data-icon="H"></i>';
 	}
 	if(weatherdata.weather === 'Mostly Cloudy'){
-		weatherdata.weather = "it's not raining...";
+		weatherdata.weather = "clouds are warm and it's not raining...";
 		weatherdata.img = '<i data-icon="N"></i>';
 	}
 	if(weatherdata.weather === 'Cloudy'){
