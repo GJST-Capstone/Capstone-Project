@@ -8,7 +8,12 @@ var templates = require('./server-templates/compiled-templates');
 
 // Authentication stuff:
 var pwd = require("pwd");
-var config = require('./config');
+// var config = require('./config'); // prior to Heroku
+var config = (process.env.HEROKU)? // Heroku method
+  { 
+    dbKey: process.env.DBKEY
+  } :
+  require('./config.js');
 var db = require('orchestrate')(config.dbKey);
 
 
