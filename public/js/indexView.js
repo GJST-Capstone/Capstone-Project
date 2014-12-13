@@ -25,7 +25,7 @@ app.WeatherView = Backbone.View.extend({
 
 
 	if(weatherdata.weather === 'Clear'){
-		weatherdata.weather = "it's clear, go outside";
+		weatherdata.weather = "it's clear, go outside and move!";
 		weatherdata.img = '<i data-icon="B"></i>';
 	}
 	if(weatherdata.weather === 'Partly Cloudy'){
@@ -41,7 +41,7 @@ app.WeatherView = Backbone.View.extend({
 		weatherdata.img = '<i data-icon="Y"></i>';
 	}
 	if(weatherdata.weather === 'Hazy'){
-		weatherdata.weather = "don't be lazy cause it's hazy";
+		weatherdata.weather = "don't be lazy 'cause it's hazy";
 		weatherdata.img = '<i data-icon="Y"></i>';
 	}
 	if(weatherdata.weather === 'Foggy'){
@@ -61,15 +61,15 @@ app.WeatherView = Backbone.View.extend({
 		weatherdata.img = '<i data-icon="F"></i><i data-icon="G"></i>';
 	}
 	if(weatherdata.weather === 'Chance of Showers'){
-		weatherdata.weather = "maybe it will rain? maybe it wont";
+		weatherdata.weather = "maybe it will rain? maybe it won't";
 		weatherdata.img = '<i data-icon="B"></i>';
 	}
 	if(weatherdata.weather === 'Showers'){
-		weatherdata.weather = "it's raining it's pouring don't be boring, go to the gym";
+		weatherdata.weather = "it's raining, it's pouring, don't be boring...go to the gym";
 		weatherdata.img = '<i data-icon="B"></i>';
 	}
 	if(weatherdata.weather === 'Chance of Rain'){
-		weatherdata.weather = "50% chance of 50% chance of rain";
+		weatherdata.weather = "50% chance of rain";
 		weatherdata.img = '<i data-icon="Q"></i>';
 	}
 	if(weatherdata.weather === 'Rain'){
@@ -85,7 +85,7 @@ app.WeatherView = Backbone.View.extend({
 		weatherdata.img = '<i data-icon="P"></i>';
 	}
 	if(weatherdata.weather === 'Flurries'){
-		weatherdata.weather = "flurries";
+		weatherdata.weather = "no worries, it's just flurries";
 		weatherdata.img = '<i data-icon="U"></i>';
 	}
 	if(weatherdata.weather === 'OMITTED'){
@@ -117,7 +117,7 @@ app.WeatherView = Backbone.View.extend({
 		weatherdata.img = '<i data-icon="X"></i>';
 	}
 	if(weatherdata.weather === 'Blizzard'){
-		weatherdata.weather = "get some coco and stay indoors";
+		weatherdata.weather = "get some cocoa and stay indoors";
 		weatherdata.img = '<i data-icon="W"></i>';
 	}
 
