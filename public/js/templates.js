@@ -124,7 +124,7 @@ app.templates.chooseForm = _.template(
       '<select class="form-control choose-controlTwo">'+
         '<option value="" selected disabled>Please select</option>'+
         '<option>inside</option>'+
-        '<option>outsite</option>'+
+        '<option>outside</option>'+
         '<option>gym</option>'+
       '</select>'+
       '<select class="form-control choose-controlThree">'+
