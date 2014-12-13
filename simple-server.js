@@ -145,5 +145,5 @@ router.addRoute("/public/*", st({
 }));
 
 var server = http.createServer(router);
-server.listen(3000);
-console.log("example auth server listening on port 3000");
+server.listen(1522);
+console.log("example auth server listening on port 1522");
