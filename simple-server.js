@@ -109,11 +109,6 @@ router.addRoute("/joel", {
   },
 });
 
-router.addRoute("/stacy", {
-  GET: function (req, res, opts) {
-    sendHtml(req, res, templates.stacy({ message: "hello stacDog"}));
-  },
-});
 
 // router.addRoute("/login", {
 //   GET: function (req, res, opts) {
