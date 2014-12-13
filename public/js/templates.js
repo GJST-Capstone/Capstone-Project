@@ -17,13 +17,13 @@ app.templates.indexview = _.template(
   '</div>'
 );
 app.templates.weatherview = _.template(
-  '<div class="col-sm-6">'+
+  '<div class="col-sm-5">'+
   '<span class="weather-icon">{{img}}</span>'+
   '<span class="weather-temp">{{temp_f}}<span class="deg">&deg;</span><span class="fahrenheit">F</span></span>'+
   '<span class="weather-city">{{city}}, </span>'+
   '<span class="weather-state">{{state}}</span>'+
   '</div>'+
-  '<div class=" col-sm-6 weather-text hidden-xs ">{{weather}}</div>'
+  '<div class=" col-sm-7 weather-text hidden-xs ">{{weather}}</div>'
 );
 // app.templates.searchView = _.template(
 //   '<div class="full">'+
