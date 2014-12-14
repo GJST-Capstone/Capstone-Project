@@ -66,15 +66,14 @@ function addSearch() {
 function addChoose() {
   app.lastchooseModel = app.chooseCol.length-1;
   app.chooseChannelId = [
-    'UCD0nBMLdq_KbIK9u-mzpNkA', 
-    'UCxTO69CggJGFQpZz-kE2k7g', 
-    'UCgBTevPW8fsH4pQNrLufOsQ', 
-    'UCiP6wD_tYlYLYh3agzbByWQ', 
-    'UCuY1W4AwhhgkB6rsJBtltUA',
-    'UCnUlSOVlCmoyQ6e2YQAGZZA', 
-    'UCIJwWYOfsCfz6PjxbONYXSg',
-    'UCHI8IisuAV0zduaUwNzBizQ' 
-
+    'UCHI8IisuAV0zduaUwNzBizQ', // Chris & Heidi Powell
+    'UCxTO69CggJGFQpZz-kE2k7g', // Bob Harper
+    'UCgBTevPW8fsH4pQNrLufOsQ', // Tone It Up
+    'UCiP6wD_tYlYLYh3agzbByWQ', // Fitness Blender
+    'UCD0nBMLdq_KbIK9u-mzpNkA', // BeFit
+    'UCuY1W4AwhhgkB6rsJBtltUA', // BodyRock
+    'UCnUlSOVlCmoyQ6e2YQAGZZA', // DietHealth
+    'UCIJwWYOfsCfz6PjxbONYXSg', // Biogilates ? lots of "sexy" titles
   ];
   app.chooseResultsVal = 9;
   app.chooseInputAdd = app.chooseCol.models[app.lastchooseModel].attributes.chooseInputVal;
