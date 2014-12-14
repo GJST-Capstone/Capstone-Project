@@ -9,7 +9,7 @@ app.templates.indexview = _.template(
   '</div>'+
   '<div class="search-btns col-xs-12 col-sm-5 col-sm-offset-7">'+
   //'<strong>Start your search here</strong>'+
-  '<a class="btn btn-primary btn-lg pairedButtons" href="/#/search/">I want a specific workout</a>'+
+  '<a class="btn btn-primary btn-lg pairedButtons" href="/#/search/">I want to search for my workout</a>'+
   '<a class="btn btn-primary btn-lg pairedButtons" href="/#/choose/">Guide Me</a>'+
   '</div>'+
   '</div>'+
