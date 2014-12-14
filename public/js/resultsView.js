@@ -18,7 +18,7 @@ app.VideosListView = Backbone.View.extend({
   render: function () {
 
     var outputHtml = '';
-    var likeCount = 0;
+    // var likeCount = 0;
     var data = {};
     this.collection.models.forEach(function (video) {
       var vidId = video.get('id2'); 
