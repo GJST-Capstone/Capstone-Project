@@ -58,7 +58,7 @@ app.router = new app.Router;
 function addSearch() {
   app.lastsearchModel = app.searchCol.length-1;
   app.searchChannelId = 'UCD0nBMLdq_KbIK9u-mzpNkA';
-  app.searchResultsVal = 9;
+  app.searchResultsVal = 3;
   app.searchInputAdd = app.searchCol.models[app.lastsearchModel].attributes.searchInputVal
   app.url1 = ytUrl+'&channelId='+app.searchChannelId+'&maxResults='+app.searchResultsVal+'&q='+app.searchInputAdd+'&key='+ytKey;
 }
@@ -75,7 +75,7 @@ function addChoose() {
     'UCnUlSOVlCmoyQ6e2YQAGZZA', // DietHealth
     'UCIJwWYOfsCfz6PjxbONYXSg', // Biogilates ? lots of "sexy" titles
   ];
-  app.chooseResultsVal = 9;
+  app.chooseResultsVal = 3;
   app.chooseInputAdd = app.chooseCol.models[app.lastchooseModel].attributes.chooseInputVal;
   app.url1 = ytUrl+'&channelId='+app.chooseChannelId[0]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
   app.url2 = ytUrl+'&channelId='+app.chooseChannelId[1]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
