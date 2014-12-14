@@ -94,8 +94,6 @@ $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
 
-
-
 function weatherUnder() {
   $.ajax({
     url : "http://api.wunderground.com/api/76d70ebe6fc5953b/geolookup/conditions/q/autoip.json",
@@ -112,8 +110,6 @@ function weatherUnder() {
   });
 };
 weatherUnder();
-
-
 
 
 

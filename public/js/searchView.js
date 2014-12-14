@@ -1,6 +1,4 @@
 
-
-
 app.searchModel = Backbone.Model.extend({});
 
 app.SearchCollection = Backbone.Collection.extend({

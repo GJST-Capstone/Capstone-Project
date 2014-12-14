@@ -1,9 +1,19 @@
-app.Video = Backbone.Model.extend({});
+
+app.Video = Backbone.Model.extend({
+  defaults: {
+    like:0
+  }
+});
 
 app.Videos = Backbone.Collection.extend({
+  url: '/api',
   model: app.Video,
   comparator: 'cid',
-  // add default "like" count to 0 in a variable that can be updated after database call
+  display: function() { //custom method
+    // console.log("Keys: "+this.pluck('key'));
+    // console.log("likes: "+this.pluck('like'));
+    console.log("display function in app.Videos collection")
+  }
 });
 
 app.videosCol = new app.Videos();
@@ -35,7 +45,7 @@ app.VideosListView = Backbone.View.extend({
       outputHtml += app.templates.resultItem(data);
       videoKeyList.push(data.videoId);
     });
-    console.log('videoKeyList outside function: ' + videoKeyList);
+    console.log('videoKeyList on resultsView.js: ' + videoKeyList);
     console.log('Vids Were rendered');
     console.log('searchCol has add from router:results') 
     $(this.el).html(outputHtml);
