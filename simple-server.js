@@ -23,36 +23,36 @@ var router = Router();
 var jsonBody = require('body/json'); // include for json posting
 
 // Create api routes:
-router.addRoute("/api", {
-  GET:  function(req,res,opts) {
-      console.log("getting...");
-      console.log(JSON.stringify(opts));
-      res.end("Got it!");
-  },
-  PUT:  function(req,res,opts) {
-      console.log("putting...");
-      console.log(JSON.stringify(opts));
-      res.end("It's put!");
-  },
-  POST: function(req,res,opts) {
-      console.log("posting...");
-      console.log(JSON.stringify(opts));
-      //textBody(req,res,function(err,body) {
-      jsonBody(req,res,function(err,body) { //Alternative: expects json body
-        if (err) {
-                res.statusCode = 418;// override default 200
-              return res.end("Post failed!")
-            }
-        console.log('body = '+ body);
-        res.end("It's posted!");
-      });
-  },
-  DELETE: function(req,res,opts) {
-      console.log("deleting...");
-      console.log(JSON.stringify(opts));
-      res.end("It's deleted!");
-  }
-});
+// router.addRoute("/api", {
+//   GET:  function(req,res,opts) {
+//       console.log("getting...");
+//       console.log(JSON.stringify(opts));
+//       res.end("Got it!");
+//   },
+//   PUT:  function(req,res,opts) {
+//       console.log("putting...");
+//       console.log(JSON.stringify(opts));
+//       res.end("It's put!");
+//   },
+//   POST: function(req,res,opts) {
+//       console.log("posting...");
+//       console.log(JSON.stringify(opts));
+//       //textBody(req,res,function(err,body) {
+//       jsonBody(req,res,function(err,body) { //Alternative: expects json body
+//         if (err) {
+//                 res.statusCode = 418;// override default 200
+//               return res.end("Post failed!")
+//             }
+//         console.log('body = '+ body);
+//         res.end("It's posted!");
+//       });
+//   },
+//   DELETE: function(req,res,opts) {
+//       console.log("deleting...");
+//       console.log(JSON.stringify(opts));
+//       res.end("It's deleted!");
+//   }
+// });
 
 
 // function createUser (user, password) {
