@@ -31,6 +31,8 @@ app.Router = Backbone.Router.extend({
       }); 
       //add the data to the collection
       app.videosCol.add(data.items);
+      // IS THIS MAYBE THE PLACE TO PUT THE VIDEO IDS IN AN ARRAY FOR THE ORCH CALL
+      
       //render
       app.resultsView.render();
       $(".ytvid").fitVids();
