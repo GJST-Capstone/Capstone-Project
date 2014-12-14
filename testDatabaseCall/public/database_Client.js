@@ -31,7 +31,7 @@ function findModel(key) {
 
 function incrementLike(key) { // videoId is 'key' and needs to be in a string form 
 	var model = findModel(key);
-	model.set("like",model.get("like")+1);
+	model.set("like",model.get("like")+1); // 'like' is attribute in database record. 
 	model.save(); //send POST to server, updates db
 }
 
@@ -52,7 +52,7 @@ function refreshCollection() {
 }
 
 // usage:
-//refreshCollection();  // updates like of any models saved to db
+//refreshCollection();  // updates 'like' of any models saved to db
 //incrementLike(3);
 //incrementLike(7);
 //incrementLike(3);
