@@ -1,4 +1,3 @@
-// Demo for updating a partially-saved backbone collection
 
 var Model = Backbone.Model.extend({
 	defaults: {
@@ -10,15 +9,16 @@ var Collection = Backbone.Collection.extend({
 	url: '/api',
 	model:  Model,
 	display: function() { //custom method
-		console.log("Keys:  "+this.pluck('key'));
-		console.log("likes:"+this.pluck('like'));
+		console.log("Keys: "+this.pluck('key'));
+		console.log("likes: "+this.pluck('like'));
 	}
 })
 
 var coll = new Collection();
-// fill coll with 16 models with unique keys
-for (var key = 0; key<16; ++key) {
-	coll.add({key:key});  // adds models to collection, but doesn't save
+// fill coll with 9 models with unique keys
+var videoList = ['G5rpjkIQ2M8','BSrSoN529CY']
+for (var key = 0; key<videoList.length; ++key) {
+	coll.add({key:videoList[key]});  // adds models to collection, but doesn't save
 }
 coll.display();
 
@@ -35,8 +35,8 @@ function findModel(key) {
 	return models[0];
 }
 
-function incrementLike(key) {
-	var model = findModel(key);
+function incrementLike(videoId) { // videoId is 'key' and needs to be in a string form 
+	var model = findModel(videoId);
 	model.set("like",model.get("like")+1);
 	model.save(); //send POST to server, updates db
 }

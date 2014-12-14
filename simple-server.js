@@ -22,37 +22,76 @@ var router = Router();
 //var textBody = require('body');
 var jsonBody = require('body/json'); // include for json posting
 
-// Create api routes:
-// router.addRoute("/api", {
-//   GET:  function(req,res,opts) {
-//       console.log("getting...");
-//       console.log(JSON.stringify(opts));
-//       res.end("Got it!");
-//   },
-//   PUT:  function(req,res,opts) {
-//       console.log("putting...");
-//       console.log(JSON.stringify(opts));
-//       res.end("It's put!");
-//   },
-//   POST: function(req,res,opts) {
-//       console.log("posting...");
-//       console.log(JSON.stringify(opts));
-//       //textBody(req,res,function(err,body) {
-//       jsonBody(req,res,function(err,body) { //Alternative: expects json body
-//         if (err) {
-//                 res.statusCode = 418;// override default 200
-//               return res.end("Post failed!")
-//             }
-//         console.log('body = '+ body);
-//         res.end("It's posted!");
-//       });
-//   },
-//   DELETE: function(req,res,opts) {
-//       console.log("deleting...");
-//       console.log(JSON.stringify(opts));
-//       res.end("It's deleted!");
-//   }
-// });
+
+router.addRoute("/", {
+  GET: function (req, res, opts) {
+    sendHtml(req, res, templates.index({ message: "RatherFit"}));
+  },
+});
+
+router.addRoute("/joel", {
+  GET: function (req, res, opts) {
+    sendHtml(req, res, templates.joel({ message: "hello joel"}));
+  },
+});
+
+router.addRoute("/api", {
+
+  GET: function(req,res,opts) { 
+
+        function forwardOrchResults(result) {
+            var values = result.body.results.map(getValue);
+            console.log("Returning array: "+JSON.stringify(values));
+            res.end(JSON.stringify(values));
+        }
+
+        function handleFailure(err) {
+            console.log("Error: "+err);
+            res.end(err);
+        }
+
+        console.log("Processing GET request...");
+        console.log("Options:"+JSON.stringify(opts));
+        var queryStr = opts.parsedUrl.query;
+
+        if (queryStr) { // expect set of keys, search db for only those
+            var queryObj = querystring.decode(opts.parsedUrl.query);
+            var keyStr = queryObj.keys;
+            if (!keyStr) throw "query includes no keys";
+            // turn '1,2,3' into 'key:(1 OR 2 OR 3)':
+            var searchStr = "key:(" + keyStr.split(',').join(' OR ') + ")";
+            console.log("Searching db for "+searchStr);
+
+            // return subset of db:
+            db.search(dbCollectionName, searchStr)
+            .then(forwardOrchResults)
+            .fail(handleFailure)
+        } else {
+            db.list(dbCollectionName)
+            .then(forwardOrchResults)
+            .fail(handleFailure) 
+        }
+    },
+
+  POST: function(req,res,opts) {
+            console.log("Processing POST request...");
+            console.log(JSON.stringify(opts));
+      jsonBody(req,res, function saveBody(err,body) {
+            var key = String(body.key);
+            console.log("Body:");
+            console.log(body);
+        db.put(dbCollectionName,key,body)
+            .then(function(result){
+              res.end('done!');
+            })
+            .fail(function(err){
+                console.log("err: "+err);
+                res.end();
+            });
+      });
+  }
+});
+
 
 
 // function createUser (user, password) {
@@ -100,20 +139,6 @@ var jsonBody = require('body/json'); // include for json posting
 //       callback(new Error("user not found"));
 //     });
 // }
-
-router.addRoute("/", {
-  GET: function (req, res, opts) {
-    sendHtml(req, res, templates.index({ message: "RatherFit"}));
-  },
-});
-
-
-router.addRoute("/joel", {
-  GET: function (req, res, opts) {
-    sendHtml(req, res, templates.joel({ message: "hello joel"}));
-  },
-});
-
 
 // router.addRoute("/login", {
 //   GET: function (req, res, opts) {
