@@ -69,7 +69,7 @@ app.templates.main = _.template(
 
 );
 
-app.templates.resutlItem = _.template(
+app.templates.resultItem = _.template(
   '<div class="col-xs-12 col-sm-6 col-md-4">'+
   '<div class="ytvid">'+
   // '<p class="title">{{title}}</p>' +
