@@ -10,8 +10,8 @@ var templates = require('./server-templates/compiled-templates');
 var pwd = require("pwd");
 // var config = require('./config'); // prior to Heroku
 var config = (process.env.HEROKU)? // Heroku method
-  { 
-    dbKey: process.env.DBKEY
+  {
+    dbKey: process.env.DBKEY 
   } :
   require('./config.js');
 var db = require('orchestrate')(config.dbKey);
