@@ -92,7 +92,15 @@ router.addRoute("/api", {
   }
 });
 
+router.addRoute("/public/*", st({
+  path: __dirname + "/public",
+  url: "/public"
+}));
 
+var server = http.createServer(router);
+var serverLocation = (process.env.PORT || 5000)
+server.listen(serverLocation);
+console.log("example auth server listening on port " + serverLocation);
 
 // function createUser (user, password) {
 //   pwd.hash(password, function (err, salt, hash) {
@@ -163,13 +171,3 @@ router.addRoute("/api", {
 //     })//formBody
 //   }
 // });
-
-router.addRoute("/public/*", st({
-  path: __dirname + "/public",
-  url: "/public"
-}));
-
-var server = http.createServer(router);
-var serverLocation = (process.env.PORT || 5000)
-server.listen(serverLocation);
-console.log("example auth server listening on port " + serverLocation);

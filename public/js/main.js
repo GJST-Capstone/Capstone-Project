@@ -3,7 +3,7 @@ app.Router = Backbone.Router.extend({
         "choose/": "choose",
         "search/": "search",
         "results/": "results",
-        "": "index" // Backbone will try match the route above first
+        "": "index" // Backbone will try to match the route above first
     },
 
   index: function() {
