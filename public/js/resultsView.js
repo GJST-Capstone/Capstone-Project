@@ -3,7 +3,7 @@ app.Video = Backbone.Model.extend({});
 app.Videos = Backbone.Collection.extend({
   model: app.Video,
   comparator: 'cid',
-  
+  // add default "like" count to 0 in a variable that can be updated after database call
 });
 
 app.videosCol = new app.Videos();
@@ -16,7 +16,6 @@ app.VideosListView = Backbone.View.extend({
   },
 
   render: function () {
-
 
     var outputHtml = '';
     var data = {};

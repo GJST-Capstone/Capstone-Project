@@ -15,17 +15,11 @@ var Collection = Backbone.Collection.extend({
 })
 
 var coll = new Collection();
-// fill coll with 9 models with unique keys
-var videoList = ['G5rpjkIQ2M8','BSrSoN529CY']
+var videoList = ['G5rpjkIQ2M8','BSrSoN529CY'] // replace with array of results videoIds
 for (var key = 0; key<videoList.length; ++key) {
 	coll.add({key:videoList[key]});  // adds models to collection, but doesn't save
 }
 coll.display();
-
-//console.log("Keys:"+coll.pluck('key'));
-//console.log("likes:"+coll.pluck('like')); // all likes start at 0
-
-
 
 
 function findModel(key) {
@@ -35,8 +29,8 @@ function findModel(key) {
 	return models[0];
 }
 
-function incrementLike(videoId) { // videoId is 'key' and needs to be in a string form 
-	var model = findModel(videoId);
+function incrementLike(key) { // videoId is 'key' and needs to be in a string form 
+	var model = findModel(key);
 	model.set("like",model.get("like")+1);
 	model.save(); //send POST to server, updates db
 }
@@ -49,8 +43,6 @@ function refreshModel(attrObj) {
 
 function refreshCollection() {
 	var keyStr = coll.pluck('key').join(',');
-	// Make a GET request listing all keys of collection (in URL query)
-	// Can simulate in terminal: curl localhost:1337/api?keys=1,2,3
 	$.get("/api","keys="+keyStr, function(dataStr) {
 		// dataStr is JSON array describing models currently in database
 		var arr = JSON.parse(dataStr);
