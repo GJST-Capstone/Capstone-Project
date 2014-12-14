@@ -73,7 +73,7 @@ function addChoose() {
     'UCuY1W4AwhhgkB6rsJBtltUA',
     'UCnUlSOVlCmoyQ6e2YQAGZZA', 
     'UCIJwWYOfsCfz6PjxbONYXSg',
-    'UCdsvmOV_qYJUPqlUxs72Jtw' 
+    'UCHI8IisuAV0zduaUwNzBizQ' 
 
   ];
   app.chooseResultsVal = 9;
