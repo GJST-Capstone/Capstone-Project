@@ -18,6 +18,7 @@ app.VideosListView = Backbone.View.extend({
   render: function () {
 
     var outputHtml = '';
+    var videoKeyList = [];
     // var likeCount = 0;
     var data = {};
     this.collection.models.forEach(function (video) {
@@ -32,7 +33,9 @@ app.VideosListView = Backbone.View.extend({
       data.thumbnailsL = snippet.thumbnails.high.url;
       //output template and provide data obj          
       outputHtml += app.templates.resultItem(data);
+      videoKeyList.push(data.videoId);
     });
+    console.log('videoKeyList outside function: ' + videoKeyList);
     console.log('Vids Were rendered');
     console.log('searchCol has add from router:results') 
     $(this.el).html(outputHtml);

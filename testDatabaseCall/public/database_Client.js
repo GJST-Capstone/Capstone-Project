@@ -15,9 +15,9 @@ var Collection = Backbone.Collection.extend({
 })
 
 var coll = new Collection();
-var videoList = ['G5rpjkIQ2M8','BSrSoN529CY'] // replace with array of results videoIds
-for (var key = 0; key<videoList.length; ++key) {
-	coll.add({key:videoList[key]});  // adds models to collection, but doesn't save
+var videoKeyList = ['G5rpjkIQ2M8','BSrSoN529CY'] // replace with array of results videoIds
+for (var key = 0; key<videoKeyList.length; ++key) {
+	coll.add({key:videoKeyList[key]});  // adds models to collection, but doesn't save
 }
 coll.display();
 
