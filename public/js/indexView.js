@@ -21,6 +21,7 @@ app.WeatherView = Backbone.View.extend({
 		weatherdata.state = data.location.state;
 		weatherdata.img = data.current_observation.icon_url;
 		weatherdata.weather = data.current_observation.weather;
+		console.log(weatherdata.weather);
 
 
 
