@@ -35,6 +35,7 @@ app.Router = Backbone.Router.extend({
       
       //render
       app.resultsView.render();
+      
       $(".ytvid").fitVids();
     }
     //get the data and run the callback
@@ -52,6 +53,7 @@ app.Router = Backbone.Router.extend({
 
 var ytKey = 'AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA'
 var ytUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet'
+
 app.router = new app.Router;
 
 
@@ -105,6 +107,9 @@ function addChoose() {
   app.url7 = ytUrl+'&channelId='+app.chooseChannelId[6]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
   app.url8 = ytUrl+'&channelId='+app.chooseChannelId[7]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
 }
+
+
+
 
 // Closes the Responsive Menu on Menu Item Click
 $('.navbar-collapse ul li a').click(function() {
