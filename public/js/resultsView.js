@@ -1,8 +1,9 @@
 
 app.Video = Backbone.Model.extend({
-  // defaults: {
-  //   like:0
-  // }
+  defaults: {
+    like:0
+
+  }
 });
 
 app.Videos = Backbone.Collection.extend({
@@ -32,7 +33,7 @@ app.VideosListView = Backbone.View.extend({
     var data = {};
     this.collection.models.forEach(function (video) {
       var vidId = video.get('id2'); 
-      var snippet = video.get('snippet')      
+      var snippet = video.get('snippet');
       //add youtube api-data to the obj we call in the template
       data.likes = 0;
       data.videoId = vidId.videoId;
@@ -41,6 +42,7 @@ app.VideosListView = Backbone.View.extend({
       data.thumbnailsS = snippet.thumbnails.default.url;
       data.thumbnailsM = snippet.thumbnails.medium.url;
       data.thumbnailsL = snippet.thumbnails.high.url;
+      video.set('videoKey', data.videoId);
       //output template and provide data obj          
       outputHtml += app.templates.resultItem(data);
       keyList.push(data.videoId);
@@ -49,50 +51,24 @@ app.VideosListView = Backbone.View.extend({
     console.log('searchCol has add from router:results') 
     $(this.el).html(outputHtml);
 
-    // refreshCollection();
+// use keyList to generate a get request to the server 
+//    translate keys to string format
+// put the keys in get request to database
+// provide success callback to call only once
+//    write the function in another place and call by var name
+//       only parameter is the return string from the server
+//    Turn it back into an array (json.parse)
+// call another function on that array that includes a property request for videoId
+//    (look at refreshCollection)
+// look for the app.videosCol videoID that matches the key
+//    override the default "like" 
+
+// collection.where(attribute) is a good way to look for an attibute
+//    (think .get of the attibute name)
+
   }
 });
 
-// console.log('KeyList outside function: ' + keyList);
-
-// var coll = app.Videos();
-// var videoKeyList = ['G5rpjkIQ2M8','BSrSoN529CY']// replace with array of results videoIds
-// for (var key = 0; key<videoKeyList.length; ++key) {
-//   coll.add({key:videoKeyList[key]});  // adds models to collection, but doesn't save
-// }
-// coll.display();
-
-// // Functions for database calls and returns
-
-// function findModel(key) {
-//   var models = coll.where({key:key});
-//   if (models.length > 1) throw "found multiple models";
-//   if (models.length == 0) throw "found no models";
-//   return models[0];
-// }
-
-// function refreshModel(attrObj) {
-//   console.log(attrObj);
-//   var model= findModel(attrObj.key);
-//   model.set("like",attrObj.like);
-// }
-
-// // need to trigger this when like button clicked
-// function incrementLike(key) { // videoId is 'key' and needs to be in a string form 
-//   var model = findModel(key);
-//   model.set("like",model.get("like")+1); // 'like' is attribute in database record. 
-//   model.save();
-// }
-
-// function refreshCollection() {
-//   var keyStr = coll.pluck('key').join(',');
-//   $.get("/api","keys="+keyStr, function(dataStr) {
-//     // dataStr is JSON array describing models currently in database
-//     var arr = JSON.parse(dataStr);
-//     arr.forEach(refreshModel);
-//     coll.display();
-//   });
-// }
 
 app.ResultsView = Backbone.View.extend({
   el: '#my-app',
