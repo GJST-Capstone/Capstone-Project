@@ -51,17 +51,34 @@ app.Router = Backbone.Router.extend({
 
 var ytKey = 'AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA'
 var ytUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet'
-addSearch();
 app.router = new app.Router;
 
 
 //create the search URL return x number
 function addSearch() {
   app.lastsearchModel = app.searchCol.length-1;
-  app.searchChannelId = 'UCD0nBMLdq_KbIK9u-mzpNkA';
+  app.searchChannelId = [
+    'UCHI8IisuAV0zduaUwNzBizQ', // Chris & Heidi Powell
+    'UCxTO69CggJGFQpZz-kE2k7g', // Bob Harper
+    'UCgBTevPW8fsH4pQNrLufOsQ', // Tone It Up
+    'UCiP6wD_tYlYLYh3agzbByWQ', // Fitness Blender
+    'UCD0nBMLdq_KbIK9u-mzpNkA', // BeFit
+    'UCuY1W4AwhhgkB6rsJBtltUA', // BodyRock
+    'UCnUlSOVlCmoyQ6e2YQAGZZA', // DietHealth
+    'UCIJwWYOfsCfz6PjxbONYXSg', // Biogilates ? lots of "sexy" titles
+  ];
+
   app.searchResultsVal = 3;
   app.searchInputAdd = app.searchCol.models[app.lastsearchModel].attributes.searchInputVal
-  app.url1 = ytUrl+'&channelId='+app.searchChannelId+'&maxResults='+app.searchResultsVal+'&q='+app.searchInputAdd+'&key='+ytKey;
+  //app.url1 = ytUrl+'&channelId='+app.searchChannelId+'&maxResults='+app.searchResultsVal+'&q='+app.searchInputAdd+'&key='+ytKey;
+  app.url1 = ytUrl+'&channelId='+app.searchChannelId[0]+'&maxResults='+app.searchResultsVal+'&q='+app.searchInputAdd+'&key='+ytKey;
+  app.url2 = ytUrl+'&channelId='+app.searchChannelId[1]+'&maxResults='+app.searchResultsVal+'&q='+app.searchInputAdd+'&key='+ytKey;
+  app.url3 = ytUrl+'&channelId='+app.searchChannelId[2]+'&maxResults='+app.searchResultsVal+'&q='+app.searchInputAdd+'&key='+ytKey;
+  app.url4 = ytUrl+'&channelId='+app.searchChannelId[3]+'&maxResults='+app.searchResultsVal+'&q='+app.searchInputAdd+'&key='+ytKey;
+  app.url5 = ytUrl+'&channelId='+app.searchChannelId[4]+'&maxResults='+app.searchResultsVal+'&q='+app.searchInputAdd+'&key='+ytKey;
+  app.url6 = ytUrl+'&channelId='+app.searchChannelId[5]+'&maxResults='+app.searchResultsVal+'&q='+app.searchInputAdd+'&key='+ytKey;
+  app.url7 = ytUrl+'&channelId='+app.searchChannelId[6]+'&maxResults='+app.searchResultsVal+'&q='+app.searchInputAdd+'&key='+ytKey;
+  app.url8 = ytUrl+'&channelId='+app.searchChannelId[7]+'&maxResults='+app.searchResultsVal+'&q='+app.searchInputAdd+'&key='+ytKey;
 }
 //create the search URL return x number
 function addChoose() {
