@@ -31,7 +31,6 @@ app.Router = Backbone.Router.extend({
       }); 
       //add the data to the collection
       app.videosCol.add(data.items);
-      // IS THIS MAYBE THE PLACE TO PUT THE VIDEO IDS IN AN ARRAY FOR THE ORCH CALL
       
       //render
       app.resultsView.render();
@@ -85,6 +84,7 @@ function addSearch() {
 }
 //create the search URL return x number
 function addChoose() {
+  var counter = 0
   app.lastchooseModel = app.chooseCol.length-1;
   app.chooseChannelId = [
     'UCHI8IisuAV0zduaUwNzBizQ', // Chris & Heidi Powell
@@ -99,13 +99,29 @@ function addChoose() {
   app.chooseResultsVal = 3;
   app.chooseInputAdd = app.chooseCol.models[app.lastchooseModel].attributes.chooseInputVal;
   app.url1 = ytUrl+'&channelId='+app.chooseChannelId[0]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
+  ++counter;
+  console.log("counter: "+ counter);
   app.url2 = ytUrl+'&channelId='+app.chooseChannelId[1]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
+  ++counter;
+  console.log("counter: "+ counter);
   app.url3 = ytUrl+'&channelId='+app.chooseChannelId[2]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
+  ++counter;
+  console.log("counter: "+ counter);
   app.url4 = ytUrl+'&channelId='+app.chooseChannelId[3]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
+  ++counter;
+  console.log("counter: "+ counter);
   app.url5 = ytUrl+'&channelId='+app.chooseChannelId[4]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
+  ++counter;
+  console.log("counter: "+ counter);
   app.url6 = ytUrl+'&channelId='+app.chooseChannelId[5]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
+  ++counter;
+  console.log("counter: "+ counter);
   app.url7 = ytUrl+'&channelId='+app.chooseChannelId[6]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
+  ++counter;
+  console.log("counter: "+ counter);
   app.url8 = ytUrl+'&channelId='+app.chooseChannelId[7]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
+  ++counter;
+  console.log("counter: "+ counter);
 }
 
 

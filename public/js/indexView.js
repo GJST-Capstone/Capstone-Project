@@ -21,8 +21,7 @@ app.WeatherView = Backbone.View.extend({
 		weatherdata.state = data.location.state;
 		weatherdata.img = data.current_observation.icon_url;
 		weatherdata.weather = data.current_observation.weather;
-		console.log(data)
-
+		
 	if(weatherdata.weather === 'Clear'){
 		weatherdata.weather = "it's clear, go outside and move!";
 		weatherdata.img = '<i data-icon="B"></i>';

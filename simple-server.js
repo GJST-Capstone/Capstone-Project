@@ -31,12 +31,6 @@ router.addRoute("/", {
   },
 });
 
-router.addRoute("/joel", {
-  GET: function (req, res, opts) {
-    sendHtml(req, res, templates.joel({ message: "hello joel"}));
-  },
-});
-
 // helper function to extract values from Orchestrate responses:
 function getValue(obj) {
     return obj.value;
