@@ -3,7 +3,7 @@ app.Router = Backbone.Router.extend({
         "choose/": "choose",
         "search/": "search",
         "results/": "results",
-        "": "index" // Backbone will try match the route above first
+        "": "index" // Backbone will try to match the route above first
     },
 
   index: function() {
@@ -31,6 +31,8 @@ app.Router = Backbone.Router.extend({
       }); 
       //add the data to the collection
       app.videosCol.add(data.items);
+      // IS THIS MAYBE THE PLACE TO PUT THE VIDEO IDS IN AN ARRAY FOR THE ORCH CALL
+      
       //render
       app.resultsView.render();
       $(".ytvid").fitVids();
@@ -66,6 +68,7 @@ function addSearch() {
     'UCnUlSOVlCmoyQ6e2YQAGZZA', // DietHealth
     'UCIJwWYOfsCfz6PjxbONYXSg', // Biogilates ? lots of "sexy" titles
   ];
+
   app.searchResultsVal = 3;
   app.searchInputAdd = app.searchCol.models[app.lastsearchModel].attributes.searchInputVal
   //app.url1 = ytUrl+'&channelId='+app.searchChannelId+'&maxResults='+app.searchResultsVal+'&q='+app.searchInputAdd+'&key='+ytKey;
@@ -82,17 +85,16 @@ function addSearch() {
 function addChoose() {
   app.lastchooseModel = app.chooseCol.length-1;
   app.chooseChannelId = [
-    'UCD0nBMLdq_KbIK9u-mzpNkA', 
-    'UCxTO69CggJGFQpZz-kE2k7g', 
-    'UCgBTevPW8fsH4pQNrLufOsQ', 
-    'UCiP6wD_tYlYLYh3agzbByWQ', 
-    'UCuY1W4AwhhgkB6rsJBtltUA',
-    'UCnUlSOVlCmoyQ6e2YQAGZZA', 
-    'UCIJwWYOfsCfz6PjxbONYXSg',
-    'UCdsvmOV_qYJUPqlUxs72Jtw' 
-
+    'UCHI8IisuAV0zduaUwNzBizQ', // Chris & Heidi Powell
+    'UCxTO69CggJGFQpZz-kE2k7g', // Bob Harper
+    'UCgBTevPW8fsH4pQNrLufOsQ', // Tone It Up
+    'UCiP6wD_tYlYLYh3agzbByWQ', // Fitness Blender
+    'UCD0nBMLdq_KbIK9u-mzpNkA', // BeFit
+    'UCuY1W4AwhhgkB6rsJBtltUA', // BodyRock
+    'UCnUlSOVlCmoyQ6e2YQAGZZA', // DietHealth
+    'UCIJwWYOfsCfz6PjxbONYXSg', // Biogilates ? lots of "sexy" titles
   ];
-  app.chooseResultsVal = 9;
+  app.chooseResultsVal = 3;
   app.chooseInputAdd = app.chooseCol.models[app.lastchooseModel].attributes.chooseInputVal;
   app.url1 = ytUrl+'&channelId='+app.chooseChannelId[0]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
   app.url2 = ytUrl+'&channelId='+app.chooseChannelId[1]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
@@ -108,8 +110,6 @@ function addChoose() {
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
-
-
 
 function weatherUnder() {
   $.ajax({
@@ -127,8 +127,6 @@ function weatherUnder() {
   });
 };
 weatherUnder();
-
-
 
 
 

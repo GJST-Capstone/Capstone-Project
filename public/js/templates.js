@@ -9,7 +9,7 @@ app.templates.indexview = _.template(
   '</div>'+
   '<div class="search-btns col-xs-12 col-sm-5 col-sm-offset-7">'+
   //'<strong>Start your search here</strong>'+
-  '<a class="btn btn-primary btn-lg pairedButtons" href="/#/search/">I want a specific workout</a>'+
+  '<a class="btn btn-primary btn-lg pairedButtons" href="/#/search/">I want to search for my workout</a>'+
   '<a class="btn btn-primary btn-lg pairedButtons" href="/#/choose/">Guide Me</a>'+
   '</div>'+
   '</div>'+
@@ -17,13 +17,13 @@ app.templates.indexview = _.template(
   '</div>'
 );
 app.templates.weatherview = _.template(
-  '<div class="col-sm-6">'+
+  '<div class="col-sm-5">'+
   '<span class="weather-icon">{{img}}</span>'+
   '<span class="weather-temp">{{temp_f}}<span class="deg">&deg;</span><span class="fahrenheit">F</span></span>'+
   '<span class="weather-city">{{city}}, </span>'+
   '<span class="weather-state">{{state}}</span>'+
   '</div>'+
-  '<div class=" col-sm-6 weather-text hidden-xs ">{{weather}}</div>'
+  '<div class=" col-sm-7 weather-text hidden-xs ">{{weather}}</div>'
 );
 // app.templates.searchView = _.template(
 //   '<div class="full">'+
@@ -71,6 +71,7 @@ app.templates.main = _.template(
 
 app.templates.resultItem = _.template(
   '<div class="col-xs-12 col-sm-12 col-md-6 col-md-4">'+
+
   '<div class="ytvid">'+
   // '<p class="title">{{title}}</p>' +
   // '<p>{{description}}</p>' +
@@ -124,7 +125,7 @@ app.templates.chooseForm = _.template(
       '<select class="form-control choose-controlTwo">'+
         '<option value="" selected disabled>Please select</option>'+
         '<option>inside</option>'+
-        '<option>outsite</option>'+
+        '<option>outside</option>'+
         '<option>gym</option>'+
       '</select>'+
       '<select class="form-control choose-controlThree">'+

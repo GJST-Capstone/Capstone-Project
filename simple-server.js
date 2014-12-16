@@ -8,47 +8,106 @@ var templates = require('./server-templates/compiled-templates');
 
 // Authentication stuff:
 var pwd = require("pwd");
-var config = require('./config');
+// var config = require('./config'); // prior to Heroku
+var config = (process.env.HEROKU)? // Heroku method
+  {
+    dbKey: process.env.DBKEY 
+  } :
+  require('./config.js');
 var db = require('orchestrate')(config.dbKey);
 
+// Database collection name for 'like' counts:
+var dbCollectionName = 'count';
 
 var router = Router();
 // The body module handles the async parsing of the data in a POST request:
-//var textBody = require('body');
+// var textBody = require('body');
 var jsonBody = require('body/json'); // include for json posting
+var querystring = require('querystring'); // included for query parsing
 
-// Create api routes:
+router.addRoute("/", {
+  GET: function (req, res, opts) {
+    sendHtml(req, res, templates.index({ message: "RatherFit"}));
+  },
+});
+
+router.addRoute("/joel", {
+  GET: function (req, res, opts) {
+    sendHtml(req, res, templates.joel({ message: "hello joel"}));
+  },
+});
+
+// helper function to extract values from Orchestrate responses:
+function getValue(obj) {
+    return obj.value;
+}
+
 router.addRoute("/api", {
-  GET:  function(req,res,opts) {
-      console.log("getting...");
-      console.log(JSON.stringify(opts));
-      res.end("Got it!");
-  },
-  PUT:  function(req,res,opts) {
-      console.log("putting...");
-      console.log(JSON.stringify(opts));
-      res.end("It's put!");
-  },
+
+  GET: function(req,res,opts) { 
+
+        function forwardOrchResults(result) {
+            var values = result.body.results.map(getValue);
+            console.log("Returning array: " + JSON.stringify(values));
+            res.end(JSON.stringify(values));
+        }
+
+        function handleFailure(err) {
+            console.log("Error: " + err);
+            res.end(err);
+        }
+
+        console.log("Processing GET request...");
+        console.log("Options: "+JSON.stringify(opts));
+        var queryStr = opts.parsedUrl.query;
+
+        if (queryStr) { // expect set of keys, search db for only those
+            var queryObj = querystring.decode(opts.parsedUrl.query);
+            var keyStr = queryObj.keys;
+            if (!keyStr) throw "query includes no keys";
+            // turn '1,2,3' into 'key:(1 OR 2 OR 3)':
+            var searchStr = "key: (" + keyStr.split(',').join(' OR ') + ")";
+            console.log("Searching db for "+searchStr);
+
+            // return subset of db:
+            db.search(dbCollectionName, searchStr)
+            .then(forwardOrchResults)
+            .fail(handleFailure)
+        } else {
+            db.list(dbCollectionName)
+            .then(forwardOrchResults)
+            .fail(handleFailure) 
+        }
+    },
+
   POST: function(req,res,opts) {
-      console.log("posting...");
-      console.log(JSON.stringify(opts));
-      //textBody(req,res,function(err,body) {
-      jsonBody(req,res,function(err,body) { //Alternative: expects json body
-        if (err) {
-                res.statusCode = 418;// override default 200
-              return res.end("Post failed!")
-            }
-        console.log('body = '+ body);
-        res.end("It's posted!");
+          console.log("Processing POST request...");
+          console.log(JSON.stringify(opts));
+      jsonBody(req,res, function saveBody(err,body) {
+          var key = String(body.key);
+          console.log("Body:");
+          console.log(body);
+        db.put(dbCollectionName,key,body)
+          .then(function(result){
+            res.end('done!');
+          })
+          .fail(function(err){
+              console.log("err: " + err);
+              res.end();
+          });
       });
-  },
-  DELETE: function(req,res,opts) {
-      console.log("deleting...");
-      console.log(JSON.stringify(opts));
-      res.end("It's deleted!");
   }
 });
 
+router.addRoute("/public/*", st({
+  path: __dirname + "/public",
+  url: "/public"
+}));
+
+var server = http.createServer(router);
+var serverLocation = (process.env.PORT || 5000)
+server.listen(serverLocation);
+console.log("example auth server listening on port " + serverLocation);
 
 // function createUser (user, password) {
 //   pwd.hash(password, function (err, salt, hash) {
@@ -96,25 +155,6 @@ router.addRoute("/api", {
 //     });
 // }
 
-router.addRoute("/", {
-  GET: function (req, res, opts) {
-    sendHtml(req, res, templates.index({ message: "RatherFit"}));
-  },
-});
-
-
-router.addRoute("/joel", {
-  GET: function (req, res, opts) {
-    sendHtml(req, res, templates.joel({ message: "hello joel"}));
-  },
-});
-
-router.addRoute("/stacy", {
-  GET: function (req, res, opts) {
-    sendHtml(req, res, templates.stacy({ message: "hello stacDog"}));
-  },
-});
-
 // router.addRoute("/login", {
 //   GET: function (req, res, opts) {
 //     sendHtml(req, res, templates.login({ message: "Please log in"}));
@@ -138,12 +178,3 @@ router.addRoute("/stacy", {
 //     })//formBody
 //   }
 // });
-
-router.addRoute("/public/*", st({
-  path: __dirname + "/public",
-  url: "/public"
-}));
-
-var server = http.createServer(router);
-server.listen(3000);
-console.log("example auth server listening on port 3000");
