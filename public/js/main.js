@@ -34,6 +34,7 @@ app.Router = Backbone.Router.extend({
       
       //render
       app.resultsView.render();
+      
       $(".ytvid").fitVids();
     }
     //get the data and run the callback
@@ -51,6 +52,7 @@ app.Router = Backbone.Router.extend({
 
 var ytKey = 'AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA'
 var ytUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet'
+
 app.router = new app.Router;
 
 
@@ -121,6 +123,9 @@ function addChoose() {
   ++counter;
   console.log("counter: "+ counter);
 }
+
+
+
 
 // Closes the Responsive Menu on Menu Item Click
 $('.navbar-collapse ul li a').click(function() {

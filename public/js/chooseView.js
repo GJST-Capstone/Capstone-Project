@@ -60,7 +60,7 @@ app.ChooseInputView = Backbone.View.extend({
     app.videosCol = new app.Videos();
     //add results to new col
     app.resultsView = new app.ResultsView({collection: app.videosCol});
-    addSearch();
+    addChoose();
     app.router.navigate('#results/', { trigger: true})
 
   }
