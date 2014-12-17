@@ -4,129 +4,108 @@
 @import "stacy.less";
 @import "tristan.less";
 //@import "joel.less";
-/*
- * Globals
- */
-
+/* * Globals */
 //@primary: #13CA7F;
 //@purple: purple;
-
-//@height100: 100px;
-
+//@height100:100px;
 @pink: #D76F92;
-
 [data-icon]:before {
 	font-family: 'MeteoconsRegular';
 	content: attr(data-icon);
 	font-style: normal;
 }
-
-a,a:link,a:active,a:visited{
-	//color:@primary;
+a, a:link, a:active, a:visited {
+	//color: @primary;
 }
-html,
-body{
+html, body {
 	height: 100%;
 }
 body {
-  padding-top: 50px;
+	padding-top: 50px;
 }
-
-#my-app{
+#my-app {
 	padding: 50px 0;
 	height: 100%;
 }
-.full{
+.full {
 	width: 100%;
 }
 .pagetrans.is-hidden {
-  opacity: 0;
-  margin-right:-100%; 
-  transition:all 1s ease;
+	opacity: 0;
+	margin-right: -100%;
+	transition: all 1s ease;
 }
 .pagetrans {
-	  position: relative;
-	transition:all 1s ease;
+	position: relative;
+	transition: all 1s ease;
 	opacity: 1;
-  margin-right:0;
+	margin-right: 0;
 }
-
-
-
-
-.view1{
-	&.welcome,
-	&.search,
-	&.choose{
-	background: url('../img/welcome.jpg') top center no-repeat #fff;
-	background-attachment: fixed;
-	display: block;
-	//height: auto;
-	text-align: center;
-	background-color:#fff;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	-o-background-size: cover;
-	position: relative;
+.view1 {
+	&.welcome, &.search, &.choose {
+		background: url('../img/welcome.jpg') top center no-repeat #fff;
+		background-attachment: fixed;
+		display: block;
+		//height: auto;
+		text-align: center;
+		background-color: #fff;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		background-size: cover;
+		-o-background-size: cover;
+		position: relative;
 	}
-	&.results{
-	background: url('../img/welcomeblur.jpg') top center no-repeat #fff;
-	background-attachment: fixed;
-	display: block;
-	height: auto;
-	text-align: center;
-	background-color:#fff;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	-o-background-size: cover;
-	position: relative;
+	&.results {
+		background: url('../img/welcomeblur.jpg') top center no-repeat #fff;
+		background-attachment: fixed;
+		display: block;
+		height: auto;
+		text-align: center;
+		background-color: #fff;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		background-size: cover;
+		-o-background-size: cover;
+		position: relative;
 	}
 }
-.view2{
-	&.welcome,
-	&.search,
-	&.choose{
-	background: url('../img/welcome2.jpg') top center no-repeat #fff;
-	background-attachment: fixed;
-	display: block;
-	//height: auto;
-	text-align: center;
-	background-color:#fff;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	-o-background-size: cover;
-	position: relative;
+.view2 {
+	&.welcome, &.search, &.choose {
+		background: url('../img/welcome2.jpg') top center no-repeat #fff;
+		background-attachment: fixed;
+		display: block;
+		//height: auto;
+		text-align: center;
+		background-color: #fff;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		background-size: cover;
+		-o-background-size: cover;
+		position: relative;
 	}
-	&.results{
-	background: url('../img/welcome2blur.jpg') top center no-repeat #fff;
-	background-attachment: fixed;
-	display: block;
-	height: auto;
-	text-align: center;
-	background-color:#fff;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	-o-background-size: cover;
-	position: relative;
+	&.results {
+		background: url('../img/welcome2blur.jpg') top center no-repeat #fff;
+		background-attachment: fixed;
+		display: block;
+		height: auto;
+		text-align: center;
+		background-color: #fff;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		background-size: cover;
+		-o-background-size: cover;
+		position: relative;
 	}
 }
-
-.search-btns{
+.search-btns {
 	margin-top: 20px;
 }
-
-.view1{
-	.start-here,
-	.search-here,
-	.choose-here{
+.view1 {
+	.start-here, .search-here, .choose-here {
 		margin-top: 20px;
-		strong{
-			text-transform: uppercase;;
-			color:#916CAF;
+		strong {
+			text-transform: uppercase;
+			color: #916CAF;
 			font-size: 20px;
 			background: rgba(255, 255, 255, 0.55);
 			padding: 10px 5px;
@@ -135,14 +114,12 @@ body {
 		}
 	}
 }
-.view2{
-	.start-here,
-	.search-here,
-	.choose-here{
+.view2 {
+	.start-here, .search-here, .choose-here {
 		margin-top: 20px;
-		strong{
-			text-transform: uppercase;;
-			color:#fff;
+		strong {
+			text-transform: uppercase;
+			color: #fff;
 			font-size: 20px;
 			background: rgba(0, 0, 0, 0.25);
 			padding: 10px 5px;
@@ -151,17 +128,112 @@ body {
 		}
 	}
 }
-
+.view1{
 .choose-here {
-	#choose-form{
-		margin-top:20px;
+	#choose-form {
+		margin-top: 20px;
 	}
-	.form-control{
-	margin-bottom: 10px;
+	.chosen-container{
+	width: 100% !important;
+	height: 40px;
+	margin-bottom: 20px;
+		a.chosen-single{
+			color:#777;
+			font-size: 18px;
+			height: 40px;
+			background: rgba(255, 255, 255, 0.55);
+			padding: 7px 10px;
+			text-align: left;
+			border-radius: 0;
+			box-shadow: none;
+			border-color: #eee ;
+				div b{
+					background: url('chosen-sprite.png') no-repeat 0px 11px;
+				}
+				abbr{
+					top:15px;
+				}
+			}
+		&.chosen-with-drop .chosen-drop{
+			background: rgba(255, 255, 255, 0.55);
+			border-radius: 0;
+			border: none;
+			box-shadow: -3px 8px 9px -4px rgba(0, 0, 0, 0.22);
+			.chosen-results{
+				margin: 0;
+				padding:0;
+				li{
+					padding: 10px;
+					font-size: 18px;
+					text-align: left;
+					background: #FFF;
+					
+					&.highlighted{
+						color: @pink;
+						background: #eee;
+
+					}
+				}
+			}
+		}
 	}
 }
-.view1{
-	#search-input{
+}
+.view2{
+	.choose-here {
+	#choose-form {
+		margin-top: 20px;
+	}
+	.chosen-container{
+	width: 100% !important;
+	height: 40px;
+	margin-bottom: 20px;
+		a.chosen-single{
+			color:#eee;
+			font-size: 18px;
+			height: 40px;
+			background: rgba(0, 0, 0, 0.25);
+			padding: 7px 10px;
+			text-align: left;
+			border-radius: 0;
+			box-shadow: none;
+			border-color: #333 ;
+				div b{
+					background: url('chosen-sprite.png') no-repeat 0px 11px;
+				}
+				abbr{
+					top:15px;
+				}
+			}
+		&.chosen-with-drop .chosen-drop{
+			background: rgba(0, 0, 0, 0.25);
+			color:#eee;
+			border-radius: 0;
+			border: none;
+			box-shadow: -3px 8px 9px -4px rgba(0, 0, 0, 0.22);
+			.chosen-results{
+				margin: 0;
+				padding:0;
+				li{
+					padding: 10px;
+					font-size: 18px;
+					text-align: left;
+					background: #333;
+					color:#eee;
+					
+					&.highlighted{
+						color: @pink;
+						background: #eee;
+
+					}
+				}
+			}
+		}
+	}
+}
+}
+.view1 {
+	#search-input {
 		border-radius: 0;
 		background: rgba(255, 255, 255, 0.55);
 		padding: 20px 10px;
@@ -169,42 +241,42 @@ body {
 		border-color: rgba(255, 255, 255, 0.70);
 		box-shadow: none;
 	}
-	.navbar-default{
-		background: rgba(255,255,255,0.55);
-		.navbar-nav>li>a{
-			color:#777;
-			&:hover{
+	.navbar-default {
+		background: rgba(255, 255, 255, 0.55);
+		.navbar-nav>li>a {
+			color: #777;
+			&:hover {
 				color: #333;
 			}
 		}
 	}
 }
-.view2{
-	#search-input{
+.view2 {
+	#search-input {
 		border-radius: 0;
 		background: rgba(0, 0, 0, 0.25);
 		padding: 20px 10px;
 		font-size: 20px;
 		border-color: rgba(0, 0, 0, 0.50);
 		box-shadow: none;
-		color:#999;
+		color: #999;
 	}
-	.navbar-default{
-		background: rgba(0,0,0,0.25);
-		.navbar-nav>li>a{
-			color:#eee;
-			&:hover{
+	.navbar-default {
+		background: rgba(0, 0, 0, 0.25);
+		.navbar-nav>li>a {
+			color: #eee;
+			&:hover {
 				color: #f0f0f0;
 			}
 		}
 	}
 }
-.navbar-brand{
-	padding-top:14px;
+.navbar-brand {
+	padding-top: 14px;
 	padding-bottom: 14px;
 }
-.pairedButtons{
-	width:100%;
+.pairedButtons {
+	width: 100%;
 	margin: 5px 0;
 	background: @pink;
 	color: #fff;
@@ -215,24 +287,29 @@ body {
 	padding: 12px 8px;
 	white-space: normal;
 	.transition(all 0.5s ease);
-	&:hover{
+	&:active,
+	&:focus,
+	&:hover {
 		background: lighten(@pink, 10%);
 		color: #FFF;
 		border-color: lighten(@pink, 15%);
 	}
 }
-.navbar-brand{
+.navbar-brand {
 	width: 140px;
 }
-.view1{
-	.logo,
-	.logo-text{
+	.logo {
+		width: 20px;
+		height: auto;
+	}
+.view1 {
+	.logo, .logo-text {
 		margin: 0 5px 0 0;
 		float: left;
 		font-size: 24px;
 		font-weight: 300;
 		line-height: 25px;
-		color:#777;
+		color: #777;
 	}
 	.logo {
 		width: 20px;
@@ -240,15 +317,14 @@ body {
 		margin-right: 0;
 	}
 }
-.view2{
-	.logo,
-	.logo-text{
+.view2 {
+	.logo, .logo-text {
 		margin: 0 5px 0 0;
 		float: left;
 		font-size: 24px;
 		font-weight: 300;
 		line-height: 25px;
-		color:#eee;
+		color: #eee;
 	}
 	.logo {
 		width: 20px;
@@ -256,105 +332,98 @@ body {
 		margin-right: 0;
 	}
 }
-
-.view1{
-	.likeThisWrap{
+.view1 {
+	.likeThisWrap {
 		background: rgba(255, 255, 255, 0.55);
 	}
 }
-.view2{
-	.likeThisWrap{
+.view2 {
+	.likeThisWrap {
 		background: rgba(0, 0, 0, 0.25);
 	}
 }
-.likeThis{
+.likeThis {
 	background: none;
 	color: #c9355d;
 	border: none;
 	float: right;
 	border-radius: 0;
-	&:hover{
+	&:hover {
 		background: none;
 		color: darken(#c9355d, 15%);
 	}
 }
-
-.ytvid{
-	margin:0 0 20px 0;
-
+.ytvid {
+	margin: 0 0 20px 0;
 }
-
-.tagline{
-position: absolute;
-right: 10%;
-top: 17px;
-font-size: 13px;
-text-transform: uppercase;
-color: @pink;
+.tagline {
+	position: absolute;
+	right: 10%;
+	top: 17px;
+	font-size: 13px;
+	text-transform: uppercase;
+	color: @pink;
 }
-
-.view1{
-	#currentWeather{
-		background:rgba(255, 255, 255, 0.55);
+.view1 {
+	#currentWeather {
+		background: rgba(255, 255, 255, 0.55);
 		padding: 20px 0;
-		color:#916CAF;
+		color: #916CAF;
 		min-height: 170px;
 	}
 }
-.view2{
-	#currentWeather{
-		background:rgba(0, 0, 0, 0.25);
+.view2 {
+	#currentWeather {
+		background: rgba(0, 0, 0, 0.25);
 		padding: 20px 0;
-		color:#fff;
+		color: #fff;
 		min-height: 170px;
 	}
 }
-
-.weather-icon{
-	font-size:40px;
+.weather-icon {
+	font-size: 40px;
 	display: block;
-	line-height:35px;
+	line-height: 35px;
 }
-.weather-temp{
+.weather-temp {
 	font-size: 30px;
 	display: block;
-	.deg,
-	.fahrenheit{
-		font-size:17px;
+	.deg, .fahrenheit {
+		font-size: 17px;
 		vertical-align: top;
 		line-height: 30px;
 	}
 }
-
-.weather-city{}
-.weather-state{}
-.weather-text{
+.weather-city {
+}
+.weather-state {
+}
+.weather-text {
 	font-size: 20px;
 	width: 50%;
 	margin: 10px auto;
 }
-
-.view1{
-	footer small{
+.view1 {
+	footer small {
 		padding: 10px;
 		text-align: right;
 		color: #474747;
 		width: 100%;
 		display: block;
-		img{
+		img {
 			width: 75px;
 			height: auto;
 		}
 	}
 }
-.view2{
-	footer small{
+.view2 {
+	footer small {
 		padding: 10px;
 		text-align: right;
 		color: #999;
 		width: 100%;
 		display: block;
-		img{
+		img {
 			width: 75px;
 			height: auto;
 		}
