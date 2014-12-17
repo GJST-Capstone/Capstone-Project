@@ -99,7 +99,7 @@ app.WeatherView = Backbone.View.extend({
 		weatherdata.img = '<i data-icon="W"></i>';
 	}
 	if(weatherdata.weather === 'Chance of Snow'){
-		weatherdata.weather = "if it isnt snowing then it will be raining";
+		weatherdata.weather = "if it isn't snowing then it will be raining";
 		weatherdata.img = '<i data-icon="V"></i>';
 	}
 	if(weatherdata.weather === 'Snow'){
@@ -121,7 +121,7 @@ app.WeatherView = Backbone.View.extend({
 
 		weatherdata.temp_f = data.current_observation.temp_f;
 
-		console.log(data)
+		// console.log(data)
     this.$el.html(app.templates.weatherview(weatherdata));
   }
 });
