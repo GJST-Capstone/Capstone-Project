@@ -58,6 +58,7 @@ app.router = new app.Router;
 
 //create the search URL return x number
 function addSearch() {
+  var counter = 0;
   app.lastsearchModel = app.searchCol.length-1;
   app.searchChannelId = [
     'UCHI8IisuAV0zduaUwNzBizQ', // Chris & Heidi Powell
@@ -67,7 +68,7 @@ function addSearch() {
     'UCD0nBMLdq_KbIK9u-mzpNkA', // BeFit
     'UCuY1W4AwhhgkB6rsJBtltUA', // BodyRock
     'UCnUlSOVlCmoyQ6e2YQAGZZA', // DietHealth
-    'UCIJwWYOfsCfz6PjxbONYXSg', // Biogilates ? lots of "sexy" titles
+    'UCIJwWYOfsCfz6PjxbONYXSg', // Blogilates
   ];
 
   app.searchResultsVal = 3;
@@ -94,34 +95,18 @@ function addChoose() {
     'UCD0nBMLdq_KbIK9u-mzpNkA', // BeFit
     'UCuY1W4AwhhgkB6rsJBtltUA', // BodyRock
     'UCnUlSOVlCmoyQ6e2YQAGZZA', // DietHealth
-    'UCIJwWYOfsCfz6PjxbONYXSg', // Biogilates ? lots of "sexy" titles
+    'UCIJwWYOfsCfz6PjxbONYXSg', // Blogilates
   ];
   app.chooseResultsVal = 3;
   app.chooseInputAdd = app.chooseCol.models[app.lastchooseModel].attributes.chooseInputVal;
   app.url1 = ytUrl+'&channelId='+app.chooseChannelId[0]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
-  ++counter;
-  console.log("counter: "+ counter);
   app.url2 = ytUrl+'&channelId='+app.chooseChannelId[1]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
-  ++counter;
-  console.log("counter: "+ counter);
   app.url3 = ytUrl+'&channelId='+app.chooseChannelId[2]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
-  ++counter;
-  console.log("counter: "+ counter);
   app.url4 = ytUrl+'&channelId='+app.chooseChannelId[3]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
-  ++counter;
-  console.log("counter: "+ counter);
   app.url5 = ytUrl+'&channelId='+app.chooseChannelId[4]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
-  ++counter;
-  console.log("counter: "+ counter);
   app.url6 = ytUrl+'&channelId='+app.chooseChannelId[5]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
-  ++counter;
-  console.log("counter: "+ counter);
   app.url7 = ytUrl+'&channelId='+app.chooseChannelId[6]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
-  ++counter;
-  console.log("counter: "+ counter);
   app.url8 = ytUrl+'&channelId='+app.chooseChannelId[7]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
-  ++counter;
-  console.log("counter: "+ counter);
 }
 
 
