@@ -1,3 +1,8 @@
+var classes = ['view1','view2']; //add as many classes as u want
+var randomnumber = Math.floor(Math.random()*classes.length);
+
+$('body').addClass(classes[randomnumber]);
+
 app.Router = Backbone.Router.extend({
     routes: {
         "choose/": "choose",
@@ -6,19 +11,32 @@ app.Router = Backbone.Router.extend({
         "": "index" // Backbone will try to match the route above first
     },
 
-  index: function() {
+  index: function() { 
+    $('#my-app').addClass('is-hidden');
+    setTimeout(function() {
+    $('#my-app').removeClass('is-hidden');
     app.indexView = new app.IndexView();
-    app.indexView.render();    
+    app.indexView.render(); 
+    weatherUnder(); 
+    }, 1000);       
   },
   search: function() {
     //create the collection
+    $('#my-app').addClass('is-hidden');
+    setTimeout(function() {
+    $('#my-app').removeClass('is-hidden');
     app.searchView = new app.SearchView({collection: app.searchCol});
-    app.searchView.render();         
+    app.searchView.render();   
+    }, 700);    
   },
   choose: function() {
     //create the collection
+    $('#my-app').addClass('is-hidden');
+    setTimeout(function() {
+    $('#my-app').removeClass('is-hidden');
     app.chooseView = new app.ChooseView({collection: app.chooseCol});
-    app.chooseView.render();         
+    app.chooseView.render()
+    }, 700);
   },
   results: function() {
     //create the collection
@@ -32,9 +50,8 @@ app.Router = Backbone.Router.extend({
       //add the data to the collection
       app.videosCol.add(data.items);
 
-      // render
-      app.resultsView.render();
-
+      //render
+      app.resultsView.render();      
     }
     //get the data and run the callback
     $.get(app.url1, null, vidDataCallback);
@@ -129,7 +146,7 @@ function weatherUnder() {
     }
   });
 };
-weatherUnder();
+
 
 
 
