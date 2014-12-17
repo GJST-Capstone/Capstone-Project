@@ -56,6 +56,18 @@ app.templates.resultItem = _.template(
   '</div>'
 );
 
+app.templates.updownItem = _.template(
+  '<div class="col-xs-12 col-sm-12 col-md-6 col-md-4">'+
+  '<div class="ytvid">'+
+  '<iframe width="560" height="315" src="//www.youtube.com/embed/{{videoId}}?rel=0" frameborder="0" allowfullscreen></iframe>'+
+  '<div class="likeThisWrap clearfix">'+
+  '<button class="btn btn-primary likeThis" type="button">'+
+  '<i class="fa fa-thumbs-up"></i> <span class="like-badge">{{likes}}</span>'+
+  '</button>'+
+  '</div>'+
+  '</div>'+
+  '</div>'
+);
 
 app.templates.searchForm = _.template(
   '<div class="full">'+
