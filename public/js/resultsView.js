@@ -20,6 +20,7 @@ app.VideosListView = Backbone.View.extend({
     var videoIdList = [];
     var data = {};
     this.collection.models.forEach(function (video) {
+      var vidID = video.get('id2');
       var snippet = video.get('snippet');
       //add youtube api-data to the obj we call in the template
       data.likes = 0;
