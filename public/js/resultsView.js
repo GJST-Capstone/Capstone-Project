@@ -12,7 +12,6 @@ app.VideosListView = Backbone.View.extend({
   el: '#videos-list',
   initialize: function (opts) {
     app.searchCol.on('add', this.render, this); 
-    //app.searchCol.listenTo(this.model, 'change', this.render);
   },
 
   render: function () {

@@ -6,7 +6,7 @@ var sendHtml = require("send-data/html"); //may also need send-data/json
 var formBody = require("body/form");
 var templates = require('./server-templates/compiled-templates');
 
-// Authentication stuff:
+// Authentication:
 var pwd = require("pwd");
 // var config = require('./config'); // prior to Heroku
 var config = (process.env.HEROKU)? // Heroku method

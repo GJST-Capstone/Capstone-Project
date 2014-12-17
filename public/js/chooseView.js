@@ -54,8 +54,7 @@ app.ChooseInputView = Backbone.View.extend({
     
     var chooseSelect = chooseVal;
     this.collection.add({chooseInputVal: chooseSelect});
-    //$chooseSelect.val('');
-    console.log('button was clicked');
+    // console.log('button was clicked');
     //delete old col by creating a new one
     app.videosCol = new app.Videos();
     //add results to new col
