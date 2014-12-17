@@ -26,15 +26,15 @@ app.Router = Backbone.Router.extend({
     //.get callback for youtube data
     function vidDataCallback(data) {
       data.items.forEach(function (video){
-        video.id2 = video.id
-        delete video.id
+        video.id2 = video.id;
+        delete video.id;
       }); 
       //add the data to the collection
       app.videosCol.add(data.items);
-      
-      //render
+
+      // render
       app.resultsView.render();
-      
+
     }
     //get the data and run the callback
     $.get(app.url1, null, vidDataCallback);
@@ -57,7 +57,6 @@ app.router = new app.Router;
 
 //create the search URL return x number
 function addSearch() {
-  var counter = 0;
   app.lastsearchModel = app.searchCol.length-1;
   app.searchChannelId = [
     'UCHI8IisuAV0zduaUwNzBizQ', // Chris & Heidi Powell
@@ -84,7 +83,6 @@ function addSearch() {
 }
 //create the search URL return x number
 function addChoose() {
-  var counter = 0
   app.lastchooseModel = app.chooseCol.length-1;
   app.chooseChannelId = [
     'UCHI8IisuAV0zduaUwNzBizQ', // Chris & Heidi Powell
