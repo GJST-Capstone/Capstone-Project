@@ -41,7 +41,7 @@ app.SearchInputView = Backbone.View.extend({
     var searchInput = $searchInput.val();
     this.collection.add({searchInputVal: searchInput});
     $searchInput.val('');
-    console.log('button was clicked');
+    // console.log('button was clicked');
     //delete old col by creating a new one
     app.videosCol = new app.Videos();
     //add results to new col
