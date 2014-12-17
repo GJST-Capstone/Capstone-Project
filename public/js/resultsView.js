@@ -40,6 +40,7 @@ app.VideosListView = Backbone.View.extend({
     console.log('Vids Were rendered');
     console.log('searchCol has add from router:results');
     $(this.el).html(outputHtml);
+    $(".ytvid").fitVids();
 
 // UPDATE LIST COUNT
 // use keyList to generate a string to the server for it's search request to database

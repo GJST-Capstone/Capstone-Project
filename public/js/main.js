@@ -35,7 +35,6 @@ app.Router = Backbone.Router.extend({
       //render
       app.resultsView.render();
       
-      $(".ytvid").fitVids();
     }
     //get the data and run the callback
     $.get(app.url1, null, vidDataCallback);
