@@ -42,3 +42,4 @@ var server = http.createServer(router);
 var serverLocation = (process.env.PORT || 5000)
 server.listen(serverLocation);
 console.log("example auth server listening on port " + serverLocation);
+

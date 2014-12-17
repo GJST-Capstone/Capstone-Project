@@ -16,6 +16,9 @@ app.searchCol.add([
     
 app.SearchView = Backbone.View.extend({
   el: '#my-app',
+  initialize: function () {
+
+  },
   render: function () {
     this.$el.parent().removeClass( 'choose welcome results' ),
     this.$el.parent().addClass( 'search' ),
@@ -42,6 +45,6 @@ app.SearchInputView = Backbone.View.extend({
     //add results to new col
     app.resultsView = new app.ResultsView({collection: app.videosCol});
     addSearch();
-    app.router.navigate('#results/', { trigger: true})
+    app.router.navigate('#results/', {trigger: true})
   }
 });

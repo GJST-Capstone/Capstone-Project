@@ -44,12 +44,12 @@ app.Router = Backbone.Router.extend({
     //.get callback for youtube data
     function vidDataCallback(data) {
       data.items.forEach(function (video){
-        video.id2 = video.id
-        delete video.id
+        video.id2 = video.id;
+        delete video.id;
       }); 
       //add the data to the collection
       app.videosCol.add(data.items);
-      
+
       //render
       app.resultsView.render();      
     }

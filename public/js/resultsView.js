@@ -20,7 +20,6 @@ app.VideosListView = Backbone.View.extend({
     var videoIdList = [];
     var data = {};
     this.collection.models.forEach(function (video) {
-      var vidId = video.get('id2'); 
       var snippet = video.get('snippet');
       //add youtube api-data to the obj we call in the template
       data.likes = 0;
@@ -51,7 +50,6 @@ app.ResultsView = Backbone.View.extend({
     this.$el.parent().addClass( 'results' ),   
 
     this.$el.html(app.templates.main);
-    
     app.listView = new app.VideosListView({collection: this.collection});
     app.listView.render();
   }

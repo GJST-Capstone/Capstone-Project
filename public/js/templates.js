@@ -41,7 +41,6 @@ app.templates.main = _.template(
   '</footer>'+
   '</div>'+
   '</div>'
-
 );
 
 app.templates.resultItem = _.template(
@@ -72,7 +71,7 @@ app.templates.searchForm = _.template(
   '</form>' +
   '</div>'+
   '<footer class="search-btns col-xs-12 col-sm-5 col-sm-offset-7">'+
-  '<small>created by | gjst<br>weather provided by  <img src="public/img/wundergroundLogo_4c_horz.png" width="5%" height="5%"></small>'+
+  '<small>created by | gjst<br>weather by  <img src="public/img/wundergroundLogo_4c_horz.png" width="5%" height="5%"></small>'+
   '</footer>'+
   '</div>'+
   '</div>'+
