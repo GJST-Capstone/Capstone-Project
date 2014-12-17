@@ -46,9 +46,9 @@ app.VideosListView = Backbone.View.extend({
 // use keyList to generate a string to the server for it's search request to database
 //    translate keys to string format
 
-console.log(video.videoKey);
+console.log('videokey: ' + videoKey);
 
-var keyString = videoKey
+// var keyString = videoKey
 
 // use keyList to generate a get request to the orchestrate
 
