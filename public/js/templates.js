@@ -12,6 +12,9 @@ app.templates.indexview = _.template(
   '<a class="btn btn-primary btn-lg pairedButtons" href="/#/search/">I want to search for my workout</a>'+
   '<a class="btn btn-primary btn-lg pairedButtons" href="/#/choose/">Guide Me</a>'+
   '</div>'+
+  '<footer class="search-btns col-xs-12 col-sm-5 col-sm-offset-7">'+
+  '<small>created by | gjst<br>weather by  <img src="public/img/wundergroundLogo_4c_horz.png" width="5%" height="5%"></small>'+
+  '</footer>'+
   '</div>'+
   '</div>'+
   '</div>'
@@ -25,69 +28,46 @@ app.templates.weatherview = _.template(
   '</div>'+
   '<div class=" col-sm-7 weather-text hidden-xs ">{{weather}}</div>'
 );
-// app.templates.searchView = _.template(
-//   '<div class="full">'+
-//   '<div class="container">'+
-//   '<div class="col-xs-12 col-sm-5 col-sm-offset-7">'+
-//   '<form role="form">'+
-//     '<div class="form-group">'+
-//       '<div>search page</div>'+
-//       '<a class="btn btn-primary" href="/">back</a>'+
-//       '<div class="row">'+
-//         '<div class="col-xs-6">'+
-//           '<label for="exampleInputPassword1">Password</label>'+
-//           '<select class="form-control">'+
-//             '<option>1</option>'+
-//             '<option>2</option>'+
-//           '</select>'+
-//           '<label for="exampleInputPassword1">Password</label>'+
-//           '<select class="form-control">'+
-//             '<option>1</option>'+
-//           '</select>'+
-//           '<label for="exampleInputPassword1">Password</label>'+
-//           '<select class="form-control">'+
-//             '<option>1</option>'+
-//             '<option>2</option>'+
-//             '<option>3</option>'+
-//           '</select>'+
-//         '</div>'+  
-//       '</div>'+
-//     '</div>'+
-//     '<button type="submit" class="btn btn-default">Submit</button>'+
-//   '</form>'+
-//   '</div>'+
-//   '</div>'+
-//   '</div>'
-// );
 
 app.templates.main = _.template(
   '<div class="container">'+
   '<div class="row">'+
   '<div id="videos-list"></div>'+
   '</div>'+
+  '<div class="row"><a href="#page-top" >Back To Top</a></div>'+
+  '<div class="row">'+
+  '<footer class="search-btns col-xs-12 col-sm-5 col-sm-offset-7">'+
+  '<small>created by | gjst<br>weather provided by  <img src="public/img/wundergroundLogo_4c_horz.png" width="5%" height="5%"></small>'+
+  '</footer>'+
+  '</div>'+
   '</div>'
-
 );
 
 app.templates.resultItem = _.template(
   '<div class="col-xs-12 col-sm-12 col-md-6 col-md-4">'+
-
   '<div class="ytvid">'+
-  // '<p class="title">{{title}}</p>' +
-  // '<p>{{description}}</p>' +
-  // '<img src="{{thumbnailsS}}" alt="{{title}}"><br>' +
-  // '<img src="{{thumbnailsM}}" alt="{{title}}"><br>' +
-  // '<img src="{{thumbnailsL}}" alt="{{title}}"><br>' +
   '<iframe width="560" height="315" src="//www.youtube.com/embed/{{videoId}}?rel=0" frameborder="0" allowfullscreen></iframe>'+
   '<div class="likeThisWrap clearfix">'+
   '<button class="btn btn-primary likeThis" type="button">'+
-  '<i class="fa fa-thumbs-up"></i> <span class="like-badge">0</span>'+
+  '<i class="fa fa-thumbs-up"></i> <span class="like-badge">{{likes}}</span>'+
   '</button>'+
   '</div>'+
   '</div>'+
   '</div>'
 );
 
+app.templates.updownItem = _.template(
+  '<div class="col-xs-12 col-sm-12 col-md-6 col-md-4">'+
+  '<div class="ytvid">'+
+  '<iframe width="560" height="315" src="//www.youtube.com/embed/{{videoId}}?rel=0" frameborder="0" allowfullscreen></iframe>'+
+  '<div class="likeThisWrap clearfix">'+
+  '<button class="btn btn-primary likeThis" type="button">'+
+  '<i class="fa fa-thumbs-up"></i> <span class="like-badge">{{likes}}</span>'+
+  '</button>'+
+  '</div>'+
+  '</div>'+
+  '</div>'
+);
 
 app.templates.searchForm = _.template(
   '<div class="full">'+
@@ -102,6 +82,9 @@ app.templates.searchForm = _.template(
     '</fieldset>' +
   '</form>' +
   '</div>'+
+  '<footer class="search-btns col-xs-12 col-sm-5 col-sm-offset-7">'+
+  '<small>created by | gjst<br>weather by  <img src="public/img/wundergroundLogo_4c_horz.png" width="5%" height="5%"></small>'+
+  '</footer>'+
   '</div>'+
   '</div>'+
   '</div>'
@@ -117,22 +100,25 @@ app.templates.chooseForm = _.template(
   '<form id="choose-form">' +
     '<fieldset>' +
       '<select class="form-control choose-controlOne">'+
-        '<option value="" selected disabled>Please select</option>'+
+        '<option value="" selected disabled>please select your intensity</option>'+
         '<option>easy</option>'+
         '<option>medium</option>'+
         '<option>difficult</option>'+
       '</select>'+
       '<select class="form-control choose-controlTwo">'+
-        '<option value="" selected disabled>Please select</option>'+
+        '<option value="" selected disabled>please select your atmosphere</option>'+
         '<option>inside</option>'+
         '<option>outside</option>'+
         '<option>gym</option>'+
       '</select>'+
       '<select class="form-control choose-controlThree">'+
-        '<option value="" selected disabled>Please select</option>'+
+        '<option value="" selected disabled>please select your focus area</option>'+
         '<option>abs</option>'+
+        '<option>arms</option>'+
         '<option>back</option>'+
         '<option>butt</option>'+
+        '<option>cardio</option>'+
+        '<option>legs</option>'+
       '</select>'+
       '<div class="pure-controls">' +
         '<button id="choose-btn" class="btn btn-primary btn-lg pairedButtons">Search</button>' +
@@ -140,6 +126,9 @@ app.templates.chooseForm = _.template(
     '</fieldset>' +
   '</form>' +
   '</div>'+
+  '<footer class="search-btns col-xs-12 col-sm-5 col-sm-offset-7">'+
+  '<small>created by | gjst<br>weather provided by  <img src="public/img/wundergroundLogo_4c_horz.png" width="5%" height="5%"></small>'+
+  '</footer>'+
   '</div>'+
   '</div>'+
   '</div>'

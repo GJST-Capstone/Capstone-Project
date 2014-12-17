@@ -21,9 +21,7 @@ app.WeatherView = Backbone.View.extend({
 		weatherdata.state = data.location.state;
 		weatherdata.img = data.current_observation.icon_url;
 		weatherdata.weather = data.current_observation.weather;
-
-
-
+		
 	if(weatherdata.weather === 'Clear'){
 		weatherdata.weather = "it's clear, go outside and move!";
 		weatherdata.img = '<i data-icon="B"></i>';
@@ -36,7 +34,7 @@ app.WeatherView = Backbone.View.extend({
 		weatherdata.weather = "mostly cloudy, like a fuzzy blanket";
 		weatherdata.img = '<i data-icon="N"></i>';
 	}
-	if(weatherdata.weather === 'Cloudy'){
+	if(weatherdata.weather === 'Cloudy' || weatherdata.weather === 'Overcast'){
 		weatherdata.weather = "it's so cloudy you might need a flashlight";
 		weatherdata.img = '<i data-icon="Y"></i>';
 	}
@@ -101,7 +99,7 @@ app.WeatherView = Backbone.View.extend({
 		weatherdata.img = '<i data-icon="W"></i>';
 	}
 	if(weatherdata.weather === 'Chance of Snow'){
-		weatherdata.weather = "if it isnt snowing then it will be raining";
+		weatherdata.weather = "if it isn't snowing then it will be raining";
 		weatherdata.img = '<i data-icon="V"></i>';
 	}
 	if(weatherdata.weather === 'Snow'){
@@ -119,15 +117,11 @@ app.WeatherView = Backbone.View.extend({
 	if(weatherdata.weather === 'Blizzard'){
 		weatherdata.weather = "get some cocoa and stay indoors";
 		weatherdata.img = '<i data-icon="W"></i>';
-	}
-
-
-
-
+	 }
 
 		weatherdata.temp_f = data.current_observation.temp_f;
 
-		console.log(data)
+		// console.log(data)
     this.$el.html(app.templates.weatherview(weatherdata));
   }
 });

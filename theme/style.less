@@ -4,197 +4,332 @@
 @import "stacy.less";
 @import "tristan.less";
 //@import "joel.less";
-/*
- * Globals
- */
-
+/* * Globals */
 //@primary: #13CA7F;
 //@purple: purple;
-
-//@height100: 100px;
-
+//@height100:100px;
+@pink: #D76F92;
 [data-icon]:before {
 	font-family: 'MeteoconsRegular';
 	content: attr(data-icon);
 	font-style: normal;
 }
-
-a,a:link,a:active,a:visited{
-	//color:@primary;
+a, a:link, a:active, a:visited {
+	//color: @primary;
 }
-html,
-body{
+html, body {
 	height: 100%;
 }
 body {
-  padding-top: 50px;
+	padding-top: 50px;
 }
-
-#my-app{
+#my-app {
 	padding: 50px 0;
+	height: 100%;
 }
-.full{
+.full {
 	width: 100%;
 }
-.welcome,
-.search,
-.choose{
-background: url('../img/welcome.jpg') top center no-repeat #fff;
-background-attachment: fixed;
-display: block;
-//height: auto;
-text-align: center;
-background-color:#fff;
--webkit-background-size: cover;
--moz-background-size: cover;
-background-size: cover;
--o-background-size: cover;
-position: relative;
+.pagetrans.is-hidden {
+	opacity: 0;
+	margin-right: -100%;
+	transition: all 1s ease;
 }
-.results{
-background: url('../img/welcomeblur.jpg') top center no-repeat #fff;
-background-attachment: fixed;
-display: block;
-height: auto;
-text-align: center;
-background-color:#fff;
--webkit-background-size: cover;
--moz-background-size: cover;
-background-size: cover;
--o-background-size: cover;
-position: relative;
+.pagetrans {
+	position: relative;
+	transition: all 1s ease;
+	opacity: 1;
+	margin-right: 0;
 }
-
-.search-btns{
-	margin-top: 20px;
-}
-
-.start-here,
-.search-here,
-.choose-here{
-	margin-top: 20px;
-	strong{
-		text-transform: uppercase;;
-		color:#916CAF;
-		font-size: 20px;
-		background: rgba(255, 255, 255, 0.55);
-		padding: 10px 5px;
-		margin-bottom: 10px;
+.view1 {
+	&.welcome, &.search, &.choose {
+		background: url('../img/welcome.jpg') top center no-repeat #fff;
+		background-attachment: fixed;
 		display: block;
+		//height: auto;
+		text-align: center;
+		background-color: #fff;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		background-size: cover;
+		-o-background-size: cover;
+		position: relative;
+	}
+	&.results {
+		background: url('../img/welcomeblur.jpg') top center no-repeat #fff;
+		background-attachment: fixed;
+		display: block;
+		height: auto;
+		text-align: center;
+		background-color: #fff;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		background-size: cover;
+		-o-background-size: cover;
+		position: relative;
 	}
 }
-
+.view2 {
+	&.welcome, &.search, &.choose {
+		background: url('../img/welcome2.jpg') top center no-repeat #fff;
+		background-attachment: fixed;
+		display: block;
+		//height: auto;
+		text-align: center;
+		background-color: #fff;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		background-size: cover;
+		-o-background-size: cover;
+		position: relative;
+	}
+	&.results {
+		background: url('../img/welcome2blur.jpg') top center no-repeat #fff;
+		background-attachment: fixed;
+		display: block;
+		height: auto;
+		text-align: center;
+		background-color: #fff;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		background-size: cover;
+		-o-background-size: cover;
+		position: relative;
+	}
+}
+.search-btns {
+	margin-top: 20px;
+}
+.view1 {
+	.start-here, .search-here, .choose-here {
+		margin-top: 20px;
+		strong {
+			text-transform: uppercase;
+			color: #916CAF;
+			font-size: 20px;
+			background: rgba(255, 255, 255, 0.55);
+			padding: 10px 5px;
+			margin-bottom: 10px;
+			display: block;
+		}
+	}
+}
+.view2 {
+	.start-here, .search-here, .choose-here {
+		margin-top: 20px;
+		strong {
+			text-transform: uppercase;
+			color: #fff;
+			font-size: 20px;
+			background: rgba(0, 0, 0, 0.25);
+			padding: 10px 5px;
+			margin-bottom: 10px;
+			display: block;
+		}
+	}
+}
 .choose-here {
-	#choose-form{
-		margin-top:20px;
+	#choose-form {
+		margin-top: 20px;
 	}
-	.form-control{
-	margin-bottom: 10px;
+	.form-control {
+		margin-bottom: 10px;
 	}
 }
-#search-input{
-	border-radius: 0;
-	background: rgba(255, 255, 255, 0.55);
-	padding: 20px 10px;
-	font-size: 20px;
-	border-color: rgba(255, 255, 255, 0.70);
-	box-shadow: none;
+.view1 {
+	#search-input {
+		border-radius: 0;
+		background: rgba(255, 255, 255, 0.55);
+		padding: 20px 10px;
+		font-size: 20px;
+		border-color: rgba(255, 255, 255, 0.70);
+		box-shadow: none;
+	}
+	.navbar-default {
+		background: rgba(255, 255, 255, 0.55);
+		.navbar-nav>li>a {
+			color: #777;
+			&:hover {
+				color: #333;
+			}
+		}
+	}
 }
-.navbar-default{
-	background: rgba(255,255,255,0.55);
+.view2 {
+	#search-input {
+		border-radius: 0;
+		background: rgba(0, 0, 0, 0.25);
+		padding: 20px 10px;
+		font-size: 20px;
+		border-color: rgba(0, 0, 0, 0.50);
+		box-shadow: none;
+		color: #999;
+	}
+	.navbar-default {
+		background: rgba(0, 0, 0, 0.25);
+		.navbar-nav>li>a {
+			color: #eee;
+			&:hover {
+				color: #f0f0f0;
+			}
+		}
+	}
 }
-.navbar-brand{
-	padding-top:14px;
+.navbar-brand {
+	padding-top: 14px;
 	padding-bottom: 14px;
 }
-.pairedButtons{
-	width:100%;
+.pairedButtons {
+	width: 100%;
 	margin: 5px 0;
-	background: #D76F92;
+	background: @pink;
 	color: #fff;
 	font-weight: 500;
 	text-transform: uppercase;
 	border-radius: 0;
-	border-color: lighten(#D76F92, 10%);
+	border-color: lighten(@pink, 10%);
 	padding: 12px 8px;
 	white-space: normal;
 	.transition(all 0.5s ease);
-	&:hover{
-		background: lighten(#D76F92, 10%);
+	&:active,
+	&:focus,
+	&:hover {
+		background: lighten(@pink, 10%);
 		color: #FFF;
-		border-color: lighten(#D76F92, 15%);
+		border-color: lighten(@pink, 15%);
 	}
 }
-
-.logo,
-.logo-text{
-	margin: 0 5px 0 0;
-	float: left;
-	font-size: 24px;
-	font-weight: 300;
-	line-height: 25px;
+.navbar-brand {
+	width: 140px;
 }
-.logo {
-	width: 20px;
-	height: auto;
-	margin-right: 0;
+	.logo {
+		width: 20px;
+		height: auto;
+	}
+.view1 {
+	.logo, .logo-text {
+		margin: 0 5px 0 0;
+		float: left;
+		font-size: 24px;
+		font-weight: 300;
+		line-height: 25px;
+		color: #777;
+	}
+	.logo {
+		width: 20px;
+		height: auto;
+		margin-right: 0;
+	}
 }
-.likeThisWrap{
-	background: rgba(255, 255, 255, 0.55);
+.view2 {
+	.logo, .logo-text {
+		margin: 0 5px 0 0;
+		float: left;
+		font-size: 24px;
+		font-weight: 300;
+		line-height: 25px;
+		color: #eee;
+	}
+	.logo {
+		width: 20px;
+		height: auto;
+		margin-right: 0;
+	}
 }
-.likeThis{
+.view1 {
+	.likeThisWrap {
+		background: rgba(255, 255, 255, 0.55);
+	}
+}
+.view2 {
+	.likeThisWrap {
+		background: rgba(0, 0, 0, 0.25);
+	}
+}
+.likeThis {
 	background: none;
 	color: #c9355d;
 	border: none;
 	float: right;
 	border-radius: 0;
-	&:hover{
+	&:hover {
 		background: none;
 		color: darken(#c9355d, 15%);
 	}
 }
-
-.ytvid{
-	margin:0 0 20px 0;
-
+.ytvid {
+	margin: 0 0 20px 0;
 }
-
-#currentWeather{
-	background:rgba(255, 255, 255, 0.55);
-	padding: 20px 0;
-	color:#916CAF;
+.tagline {
+	position: absolute;
+	right: 10%;
+	top: 17px;
+	font-size: 13px;
+	text-transform: uppercase;
+	color: @pink;
 }
-
-.weather-icon{
-	font-size:40px;
+.view1 {
+	#currentWeather {
+		background: rgba(255, 255, 255, 0.55);
+		padding: 20px 0;
+		color: #916CAF;
+		min-height: 170px;
+	}
+}
+.view2 {
+	#currentWeather {
+		background: rgba(0, 0, 0, 0.25);
+		padding: 20px 0;
+		color: #fff;
+		min-height: 170px;
+	}
+}
+.weather-icon {
+	font-size: 40px;
 	display: block;
-	line-height:35px;
+	line-height: 35px;
 }
-.weather-temp{
+.weather-temp {
 	font-size: 30px;
 	display: block;
-	.deg,
-	.fahrenheit{
-		font-size:17px;
+	.deg, .fahrenheit {
+		font-size: 17px;
 		vertical-align: top;
 		line-height: 30px;
 	}
 }
-
-.weather-city{}
-.weather-state{}
-.weather-text{
+.weather-city {
+}
+.weather-state {
+}
+.weather-text {
 	font-size: 20px;
 	width: 50%;
 	margin: 10px auto;
 }
-
-footer small{
-	position: absolute;
-	padding: 10px;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	text-align: center;
-	color: #fff;
+.view1 {
+	footer small {
+		padding: 10px;
+		text-align: right;
+		color: #474747;
+		width: 100%;
+		display: block;
+		img {
+			width: 75px;
+			height: auto;
+		}
+	}
+}
+.view2 {
+	footer small {
+		padding: 10px;
+		text-align: right;
+		color: #999;
+		width: 100%;
+		display: block;
+		img {
+			width: 75px;
+			height: auto;
+		}
+	}
 }

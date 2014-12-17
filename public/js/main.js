@@ -1,3 +1,8 @@
+var classes = ['view1','view2']; //add as many classes as u want
+var randomnumber = Math.floor(Math.random()*classes.length);
+
+$('body').addClass(classes[randomnumber]);
+
 app.Router = Backbone.Router.extend({
     routes: {
         "choose/": "choose",
@@ -6,19 +11,32 @@ app.Router = Backbone.Router.extend({
         "": "index" // Backbone will try to match the route above first
     },
 
-  index: function() {
+  index: function() { 
+    $('#my-app').addClass('is-hidden');
+    setTimeout(function() {
+    $('#my-app').removeClass('is-hidden');
     app.indexView = new app.IndexView();
-    app.indexView.render();    
+    app.indexView.render(); 
+    weatherUnder(); 
+    }, 1000);       
   },
   search: function() {
     //create the collection
+    $('#my-app').addClass('is-hidden');
+    setTimeout(function() {
+    $('#my-app').removeClass('is-hidden');
     app.searchView = new app.SearchView({collection: app.searchCol});
-    app.searchView.render();         
+    app.searchView.render();   
+    }, 700);    
   },
   choose: function() {
     //create the collection
+    $('#my-app').addClass('is-hidden');
+    setTimeout(function() {
+    $('#my-app').removeClass('is-hidden');
     app.chooseView = new app.ChooseView({collection: app.chooseCol});
-    app.chooseView.render();         
+    app.chooseView.render()
+    }, 700);
   },
   results: function() {
     //create the collection
@@ -26,16 +44,14 @@ app.Router = Backbone.Router.extend({
     //.get callback for youtube data
     function vidDataCallback(data) {
       data.items.forEach(function (video){
-        video.id2 = video.id
-        delete video.id
+        video.id2 = video.id;
+        delete video.id;
       }); 
       //add the data to the collection
       app.videosCol.add(data.items);
-      // IS THIS MAYBE THE PLACE TO PUT THE VIDEO IDS IN AN ARRAY FOR THE ORCH CALL
-      
+
       //render
-      app.resultsView.render();
-      $(".ytvid").fitVids();
+      app.resultsView.render();      
     }
     //get the data and run the callback
     $.get(app.url1, null, vidDataCallback);
@@ -52,6 +68,7 @@ app.Router = Backbone.Router.extend({
 
 var ytKey = 'AIzaSyDWCByDYIy-ow0OcChMq9QtoDrbem-xFLA'
 var ytUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet'
+
 app.router = new app.Router;
 
 
@@ -66,7 +83,7 @@ function addSearch() {
     'UCD0nBMLdq_KbIK9u-mzpNkA', // BeFit
     'UCuY1W4AwhhgkB6rsJBtltUA', // BodyRock
     'UCnUlSOVlCmoyQ6e2YQAGZZA', // DietHealth
-    'UCIJwWYOfsCfz6PjxbONYXSg', // Biogilates ? lots of "sexy" titles
+    'UCIJwWYOfsCfz6PjxbONYXSg', // Blogilates
   ];
 
   app.searchResultsVal = 3;
@@ -92,7 +109,7 @@ function addChoose() {
     'UCD0nBMLdq_KbIK9u-mzpNkA', // BeFit
     'UCuY1W4AwhhgkB6rsJBtltUA', // BodyRock
     'UCnUlSOVlCmoyQ6e2YQAGZZA', // DietHealth
-    'UCIJwWYOfsCfz6PjxbONYXSg', // Biogilates ? lots of "sexy" titles
+    'UCIJwWYOfsCfz6PjxbONYXSg', // Blogilates
   ];
   app.chooseResultsVal = 3;
   app.chooseInputAdd = app.chooseCol.models[app.lastchooseModel].attributes.chooseInputVal;
@@ -105,6 +122,9 @@ function addChoose() {
   app.url7 = ytUrl+'&channelId='+app.chooseChannelId[6]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
   app.url8 = ytUrl+'&channelId='+app.chooseChannelId[7]+'&maxResults='+app.chooseResultsVal+'&q='+app.chooseInputAdd+'&key='+ytKey;
 }
+
+
+
 
 // Closes the Responsive Menu on Menu Item Click
 $('.navbar-collapse ul li a').click(function() {
@@ -126,7 +146,7 @@ function weatherUnder() {
     }
   });
 };
-weatherUnder();
+
 
 
 
