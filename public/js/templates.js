@@ -33,7 +33,9 @@ app.templates.main = _.template(
   '<div class="container">'+
   '<div class="row">'+
   '<div id="videos-list"></div>'+
-  '<a id="btt" >Back To Top</a>'+
+  '</div>'+
+  '<div class="row"><a href="#page-top" >Back To Top</a></div>'+
+  '<div class="row">'+
   '<footer class="search-btns col-xs-12 col-sm-5 col-sm-offset-7">'+
   '<small>created by | gjst<br>weather provided by  <img src="public/img/wundergroundLogo_4c_horz.png" width="5%" height="5%"></small>'+
   '</footer>'+
