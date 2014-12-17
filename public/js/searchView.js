@@ -21,6 +21,11 @@ app.SearchView = Backbone.View.extend({
     this.$el.parent().addClass( 'search' ),
     this.$el.html(app.templates.searchForm);
     app.searchInputView = new app.SearchInputView({collection: this.collection});
+    var _thisel = this.$el;
+    _thisel.addClass('is-hidden');
+    setTimeout(function() {
+        _thisel.removeClass('is-hidden');
+    }, 1000);
   }
 });
 
