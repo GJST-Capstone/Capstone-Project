@@ -13,6 +13,8 @@
 
 //@height100: 100px;
 
+@pink: #D76F92;
+
 [data-icon]:before {
 	font-family: 'MeteoconsRegular';
 	content: attr(data-icon);
@@ -52,52 +54,101 @@ body {
 
 
 
-
-.welcome,
-.search,
-.choose{
-background: url('../img/welcome.jpg') top center no-repeat #fff;
-background-attachment: fixed;
-display: block;
-//height: auto;
-text-align: center;
-background-color:#fff;
--webkit-background-size: cover;
--moz-background-size: cover;
-background-size: cover;
--o-background-size: cover;
-position: relative;
+.view1{
+	&.welcome,
+	&.search,
+	&.choose{
+	background: url('../img/welcome.jpg') top center no-repeat #fff;
+	background-attachment: fixed;
+	display: block;
+	//height: auto;
+	text-align: center;
+	background-color:#fff;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+	position: relative;
+	}
+	&.results{
+	background: url('../img/welcomeblur.jpg') top center no-repeat #fff;
+	background-attachment: fixed;
+	display: block;
+	height: auto;
+	text-align: center;
+	background-color:#fff;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+	position: relative;
+	}
 }
-.results{
-background: url('../img/welcomeblur.jpg') top center no-repeat #fff;
-background-attachment: fixed;
-display: block;
-height: auto;
-text-align: center;
-background-color:#fff;
--webkit-background-size: cover;
--moz-background-size: cover;
-background-size: cover;
--o-background-size: cover;
-position: relative;
+.view2{
+	&.welcome,
+	&.search,
+	&.choose{
+	background: url('../img/welcome2.jpg') top center no-repeat #fff;
+	background-attachment: fixed;
+	display: block;
+	//height: auto;
+	text-align: center;
+	background-color:#fff;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+	position: relative;
+	}
+	&.results{
+	background: url('../img/welcome2blur.jpg') top center no-repeat #fff;
+	background-attachment: fixed;
+	display: block;
+	height: auto;
+	text-align: center;
+	background-color:#fff;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+	position: relative;
+	}
 }
 
 .search-btns{
 	margin-top: 20px;
 }
 
-.start-here,
-.search-here,
-.choose-here{
-	margin-top: 20px;
-	strong{
-		text-transform: uppercase;;
-		color:#916CAF;
-		font-size: 20px;
-		background: rgba(255, 255, 255, 0.55);
-		padding: 10px 5px;
-		margin-bottom: 10px;
-		display: block;
+.view1{
+	.start-here,
+	.search-here,
+	.choose-here{
+		margin-top: 20px;
+		strong{
+			text-transform: uppercase;;
+			color:#916CAF;
+			font-size: 20px;
+			background: rgba(255, 255, 255, 0.55);
+			padding: 10px 5px;
+			margin-bottom: 10px;
+			display: block;
+		}
+	}
+}
+.view2{
+	.start-here,
+	.search-here,
+	.choose-here{
+		margin-top: 20px;
+		strong{
+			text-transform: uppercase;;
+			color:#fff;
+			font-size: 20px;
+			background: rgba(0, 0, 0, 0.25);
+			padding: 10px 5px;
+			margin-bottom: 10px;
+			display: block;
+		}
 	}
 }
 
@@ -109,16 +160,44 @@ position: relative;
 	margin-bottom: 10px;
 	}
 }
-#search-input{
-	border-radius: 0;
-	background: rgba(255, 255, 255, 0.55);
-	padding: 20px 10px;
-	font-size: 20px;
-	border-color: rgba(255, 255, 255, 0.70);
-	box-shadow: none;
+.view1{
+	#search-input{
+		border-radius: 0;
+		background: rgba(255, 255, 255, 0.55);
+		padding: 20px 10px;
+		font-size: 20px;
+		border-color: rgba(255, 255, 255, 0.70);
+		box-shadow: none;
+	}
+	.navbar-default{
+		background: rgba(255,255,255,0.55);
+		.navbar-nav>li>a{
+			color:#777;
+			&:hover{
+				color: #333;
+			}
+		}
+	}
 }
-.navbar-default{
-	background: rgba(255,255,255,0.55);
+.view2{
+	#search-input{
+		border-radius: 0;
+		background: rgba(0, 0, 0, 0.25);
+		padding: 20px 10px;
+		font-size: 20px;
+		border-color: rgba(0, 0, 0, 0.50);
+		box-shadow: none;
+		color:#999;
+	}
+	.navbar-default{
+		background: rgba(0,0,0,0.25);
+		.navbar-nav>li>a{
+			color:#eee;
+			&:hover{
+				color: #f0f0f0;
+			}
+		}
+	}
 }
 .navbar-brand{
 	padding-top:14px;
@@ -127,37 +206,66 @@ position: relative;
 .pairedButtons{
 	width:100%;
 	margin: 5px 0;
-	background: #D76F92;
+	background: @pink;
 	color: #fff;
 	font-weight: 500;
 	text-transform: uppercase;
 	border-radius: 0;
-	border-color: lighten(#D76F92, 10%);
+	border-color: lighten(@pink, 10%);
 	padding: 12px 8px;
 	white-space: normal;
 	.transition(all 0.5s ease);
 	&:hover{
-		background: lighten(#D76F92, 10%);
+		background: lighten(@pink, 10%);
 		color: #FFF;
-		border-color: lighten(#D76F92, 15%);
+		border-color: lighten(@pink, 15%);
+	}
+}
+.navbar-brand{
+	width: 140px;
+}
+.view1{
+	.logo,
+	.logo-text{
+		margin: 0 5px 0 0;
+		float: left;
+		font-size: 24px;
+		font-weight: 300;
+		line-height: 25px;
+		color:#777;
+	}
+	.logo {
+		width: 20px;
+		height: auto;
+		margin-right: 0;
+	}
+}
+.view2{
+	.logo,
+	.logo-text{
+		margin: 0 5px 0 0;
+		float: left;
+		font-size: 24px;
+		font-weight: 300;
+		line-height: 25px;
+		color:#eee;
+	}
+	.logo {
+		width: 20px;
+		height: auto;
+		margin-right: 0;
 	}
 }
 
-.logo,
-.logo-text{
-	margin: 0 5px 0 0;
-	float: left;
-	font-size: 24px;
-	font-weight: 300;
-	line-height: 25px;
+.view1{
+	.likeThisWrap{
+		background: rgba(255, 255, 255, 0.55);
+	}
 }
-.logo {
-	width: 20px;
-	height: auto;
-	margin-right: 0;
-}
-.likeThisWrap{
-	background: rgba(255, 255, 255, 0.55);
+.view2{
+	.likeThisWrap{
+		background: rgba(0, 0, 0, 0.25);
+	}
 }
 .likeThis{
 	background: none;
@@ -182,14 +290,24 @@ right: 10%;
 top: 17px;
 font-size: 13px;
 text-transform: uppercase;
-color: #D76F92;
+color: @pink;
 }
 
-#currentWeather{
-	background:rgba(255, 255, 255, 0.55);
-	padding: 20px 0;
-	color:#916CAF;
-	min-height: 170px;
+.view1{
+	#currentWeather{
+		background:rgba(255, 255, 255, 0.55);
+		padding: 20px 0;
+		color:#916CAF;
+		min-height: 170px;
+	}
+}
+.view2{
+	#currentWeather{
+		background:rgba(0, 0, 0, 0.25);
+		padding: 20px 0;
+		color:#fff;
+		min-height: 170px;
+	}
 }
 
 .weather-icon{
@@ -216,14 +334,29 @@ color: #D76F92;
 	margin: 10px auto;
 }
 
-footer small{
-	padding: 10px;
-	text-align: right;
-	color: #474747;
-	width: 100%;
-	display: block;
-	img{
-		width: 75px;
-		height: auto;
+.view1{
+	footer small{
+		padding: 10px;
+		text-align: right;
+		color: #474747;
+		width: 100%;
+		display: block;
+		img{
+			width: 75px;
+			height: auto;
+		}
+	}
+}
+.view2{
+	footer small{
+		padding: 10px;
+		text-align: right;
+		color: #999;
+		width: 100%;
+		display: block;
+		img{
+			width: 75px;
+			height: auto;
+		}
 	}
 }

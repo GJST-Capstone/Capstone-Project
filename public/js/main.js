@@ -1,3 +1,8 @@
+var classes = ['view1','view2']; //add as many classes as u want
+var randomnumber = Math.floor(Math.random()*classes.length);
+
+$('body').addClass(classes[randomnumber]);
+
 app.Router = Backbone.Router.extend({
     routes: {
         "choose/": "choose",
