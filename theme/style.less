@@ -32,6 +32,7 @@ body {
 
 #my-app{
 	padding: 50px 0;
+	height: 100%;
 }
 .full{
 	width: 100%;
@@ -159,6 +160,15 @@ position: relative;
 
 }
 
+.tagline{
+position: absolute;
+right: 10%;
+top: 17px;
+font-size: 13px;
+text-transform: uppercase;
+color: #D76F92;
+}
+
 #currentWeather{
 	background:rgba(255, 255, 255, 0.55);
 	padding: 20px 0;
@@ -190,11 +200,13 @@ position: relative;
 }
 
 footer small{
-	position: absolute;
 	padding: 10px;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	text-align: center;
-	color: #fff;
+	text-align: right;
+	color: #474747;
+	width: 100%;
+	display: block;
+	img{
+		width: 75px;
+		height: auto;
+	}
 }
