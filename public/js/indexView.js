@@ -6,11 +6,6 @@ app.IndexView = Backbone.View.extend({
   	this.$el.parent().removeClass( 'choose search results' );
   	this.$el.parent().addClass( 'welcome' );
     this.$el.html(app.templates.indexview);
-    var _thisel = this.$el;
-    _thisel.addClass('is-hidden');
-    setTimeout(function() {
-        _thisel.removeClass('is-hidden');
-    }, 1000);
   }
 });
 

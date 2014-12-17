@@ -102,9 +102,7 @@ app.ResultsView = Backbone.View.extend({
   },
   render: function () {
     this.$el.parent().removeClass( 'choose welcome search' ),
-    this.$el.parent().addClass( 'results pagetrans' ),
-    this.$el.removeClass('is-hidden');
-    
+    this.$el.parent().addClass( 'results' ),   
 
     this.$el.html(app.templates.main);
     
