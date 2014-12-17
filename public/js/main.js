@@ -7,18 +7,38 @@ app.Router = Backbone.Router.extend({
     },
 
   index: function() {
+    
+    $('#my-app').addClass('is-hidden');
+    setTimeout(function() {
+    $('#my-app').removeClass('is-hidden');
     app.indexView = new app.IndexView();
-    app.indexView.render();    
+    app.indexView.render(); 
+    weatherUnder(); 
+    }, 500);       
   },
   search: function() {
     //create the collection
+  
+
+    $('#my-app').addClass('is-hidden');
+    setTimeout(function() {
+    $('#my-app').removeClass('is-hidden');
     app.searchView = new app.SearchView({collection: app.searchCol});
-    app.searchView.render();         
+    app.searchView.render();   
+    }, 500);    
   },
   choose: function() {
     //create the collection
+    
+    $('#my-app').addClass('is-hidden');
+    setTimeout(function() {
+    $('#my-app').removeClass('is-hidden');
     app.chooseView = new app.ChooseView({collection: app.chooseCol});
-    app.chooseView.render();         
+    app.chooseView.render()
+    }, 500);
+
+
+
   },
   results: function() {
     //create the collection
@@ -34,6 +54,7 @@ app.Router = Backbone.Router.extend({
       
       //render
       app.resultsView.render();
+
       
     }
     //get the data and run the callback
@@ -131,7 +152,7 @@ function weatherUnder() {
     }
   });
 };
-weatherUnder();
+
 
 
 
