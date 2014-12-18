@@ -99,20 +99,20 @@ app.templates.chooseForm = _.template(
   '<strong>Guided Search</strong>' +
   '<form id="choose-form">' +
     '<fieldset>' +
-      '<select class="form-control choose-controlOne">'+
-        '<option value="" selected disabled>please select your intensity</option>'+
+      '<select data-placeholder="please select your intensity" class="form-control chosen-select choose-controlOne">'+
+        '<option></option>'+
         '<option>easy</option>'+
         '<option>medium</option>'+
         '<option>difficult</option>'+
       '</select>'+
-      '<select class="form-control choose-controlTwo">'+
-        '<option value="" selected disabled>please select your atmosphere</option>'+
+      '<select data-placeholder="please select your atmosphere" class="form-control chosen-select choose-controlTwo">'+
+        '<option></option>'+
         '<option>inside</option>'+
         '<option>outside</option>'+
         '<option>gym</option>'+
       '</select>'+
-      '<select class="form-control choose-controlThree">'+
-        '<option value="" selected disabled>please select your focus area</option>'+
+      '<select data-placeholder="please select your focus area" class="form-control chosen-select choose-controlThree">'+
+        '<option></option>'+
         '<option>abs</option>'+
         '<option>arms</option>'+
         '<option>back</option>'+

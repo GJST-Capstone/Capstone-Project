@@ -15,6 +15,9 @@ app.ChooseView = Backbone.View.extend({
     this.$el.parent().addClass( 'choose' ),
     this.$el.html(app.templates.chooseForm);
     app.chooseInputView = new app.ChooseInputView({collection: this.collection});
+    $(".form-control").chosen({
+      disable_search_threshold: 10,
+      allow_single_deselect: true,   });
   }
 });
 
@@ -25,6 +28,7 @@ app.ChooseInputView = Backbone.View.extend({
   },
   chooseForVal: function (event) {
     event.preventDefault();
+
     var chooseValOne = this.$(".choose-controlOne").val();
     var chooseValTwo = this.$(".choose-controlTwo").val();
     var chooseValThree = this.$(".choose-controlThree").val();

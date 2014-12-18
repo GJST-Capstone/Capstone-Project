@@ -71,7 +71,7 @@ app.WeatherView = Backbone.View.extend({
 		weatherdata.img = '<i data-icon="Q"></i>';
 	}
 	if(weatherdata.weather === 'Rain'){
-		weatherdata.weather = "rain day, stretch first";
+		weatherdata.weather = "it's raining, maybe hit the gym";
 		weatherdata.img = '<i data-icon="R"></i>';
 	}
 	if(weatherdata.weather === 'Chance of a Thunderstorm'){
