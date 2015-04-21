@@ -12,12 +12,12 @@ var warmup1 = { videoId: "XQqFEKv__mc",
  '{"videoId":"XQqFEKv__mc","title":"Bikini Body Countdown: Month # 1 - Warm Up","description":"Bob Harper teamed up with SHAPE Magazine for the 2011 Bikini Body Countdown. Bob developed a progressive 5-month program for this initiative to help his","thumbnailsS":"https://i.ytimg.com/vi/XQqFEKv__mc/default.jpg","thumbnailsM":"https://i.ytimg.com/vi/XQqFEKv__mc/mqdefault.jpg","thumbnailsL":"https://i.ytimg.com/vi/XQqFEKv__mc/hqdefault.jpg"}'
 
 
-var warmup2 = { videoId: "eOGOuUKOmkk",
-                title: "Full Body Dynamic Warm-Up",
-                description: "Warm up your body in all three planes of motion - not just the 'forward and back' motion that your typical warm ups may include",
-                thumbnailsS: "https://i.ytimg.com/vi/eOGOuUKOmkk/default.jpg",
-                thumbnailsM: "https://i.ytimg.com/vi/eOGOuUKOmkk/mqdefault.jpg",
-                thumbnailsL: "https://i.ytimg.com/vi/eOGOuUKOmkk/hqdefault.jpg"
+var warmup2 = { "videoId": "eOGOuUKOmkk",
+                "title": "Full Body Dynamic Warm-Up",
+                "description": "Warm up your body in all three planes of motion - not just the 'forward and back' motion that your typical warm ups may include",
+                "thumbnailsS": "https://i.ytimg.com/vi/eOGOuUKOmkk/default.jpg",
+                "thumbnailsM": "https://i.ytimg.com/vi/eOGOuUKOmkk/mqdefault.jpg",
+                "thumbnailsL": "https://i.ytimg.com/vi/eOGOuUKOmkk/hqdefault.jpg"
               };
 
 // JSON:
